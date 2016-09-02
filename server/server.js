@@ -8,13 +8,15 @@ app.use(function(req, res, next) {
   next();
 })
 
+//this sets up routes for the other files
+app.use('/static', express.static(path.join(__dirname, '/../')));
+
+
 //this sends the index.html for the initial page load 
-app.get('/', function(req, res, next) {
+app.get('/*', function(req, res, next) {
   res.sendFile(path.join(__dirname, '/../index.html'));
 })
 
-//this sets up routes for the other files
-app.use('/static', express.static(path.join(__dirname, '/../')));
 
 
 app.set('host', process.env.HOST || 'localhost');
