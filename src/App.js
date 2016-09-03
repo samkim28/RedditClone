@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    var myRequest = new Request ('https://www.reddit.com/r/all.json');
+    var myRequest = new Request ('https://www.reddit.com/r/all.json?obey_over18=true');
     fetch(myRequest).then(function(response) {
       console.log('response from api call', response);
       return response.json();
@@ -26,14 +26,13 @@ class App extends Component {
     if(this.state.posts) {
       var arr = this.state.posts.map((curr, i)=>{
         return (
-          <Entry key = {curr.data.id} data = {curr.data}> {curr.data.subreddit} </Entry>
+          <Entry key = {curr.data.id} data = {curr.data}> </Entry>
         );
       })
       return (
         <div> 
           {renderCount}
           {arr}
-          
         </div>
       )
     }
