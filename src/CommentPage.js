@@ -4,8 +4,11 @@ import Comment from './Comment';
 class CommentPage extends Component {
   constructor(props) {
     super(props);
-    this.state={comments: null};
+    this.state={
+      comments: null,
+    };
   }
+
 
   componentDidMount() {
     //var myRequest = new Request(`https://www.reddit.com/r/television/comments/50uwdr.json`);

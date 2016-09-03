@@ -1,29 +1,45 @@
 import React, {Component} from 'react';
 
-var Comment=(props)=> {
+class Comment extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      hidden:false
+    };
 
-  var commentStyle = {
-    padding: 10
+    this.onClick = this.onClick.bind(this);
+  };
+
+  onClick() {
+    this.setState({hidden: !this.state.hidden})
   }
-  //props.data contains info for the current comment
-  if(props.data.replies) {
-    var replies = props.data.replies.data.children.map((reply)=>{
+
+  render() {
+    var commentStyle = {
+      padding: 10
+    };
+    if(this.state.hidden) {
       return (
-        <Comment key={reply.data.id} data={reply.data}> </Comment> 
+        <div style={commentStyle} onClick={(e)=>{this.onClick(); e.stopPropagation();}}> closed </div>
       )
-    })
-    return(
-      <div style={commentStyle}> 
-        <div>{props.data.body} </div>
-        {replies}
-      </div>
-
-    )
+    }
+    //props.data contains info for the current comment
+    if(this.props.data.replies) {
+      var replies = this.props.data.replies.data.children.map((reply)=>{
+        return (
+          <Comment key={reply.data.id} data={reply.data}> </Comment> 
+        )
+      })
+      return(
+        <div style={commentStyle} onClick={(e)=>{this.onClick(); e.stopPropagation();}}> 
+          <div>{this.props.data.body} </div>
+          {replies}
+        </div>
+      )
+    }
+    return (
+      <div style={commentStyle} onClick={(e)=>{this.onClick(); e.stopPropagation();}}> {this.props.data.body} </div>
+    ) 
   }
-  return (
-    <div style={commentStyle}> {props.data.body} </div>
-  )
 }
-
-
 export default Comment;
