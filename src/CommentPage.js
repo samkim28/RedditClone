@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import CommentEntry from './CommentEntry';
+import Comment from './Comment';
 
-class Comments extends Component {
+class CommentPage extends Component {
   constructor(props) {
     super(props);
     this.state={comments: null};
@@ -20,13 +20,13 @@ class Comments extends Component {
   }
   render() {
     if(this.state.comments) {
-      var arr = this.state.comments.map((curr)=>{
+      var replies = this.state.comments.map((reply)=>{
         return(
-          <CommentEntry key={curr.data.id} dog={curr.data.body}></CommentEntry>
+          <Comment key={reply.data.id} data={reply.data}></Comment>
         );
       })
       return (
-        <div> {arr} </div>
+        <div> {replies} </div>
       )
     }
     return (
@@ -35,4 +35,4 @@ class Comments extends Component {
   }
 }
 
-export default Comments;
+export default CommentPage;
