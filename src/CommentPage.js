@@ -8,8 +8,8 @@ class CommentPage extends Component {
   }
 
   componentDidMount() {
-    var myRequest = new Request(`https://www.reddit.com/r/television/comments/50uwdr.json`);
-
+    //var myRequest = new Request(`https://www.reddit.com/r/television/comments/50uwdr.json`);
+    var myRequest = new Request(`https://www.reddit.com${this.props.location.pathname}.json`)
     fetch(myRequest).then(function(response) {
       console.log('response from api call', response);
       return response.json();
@@ -30,7 +30,7 @@ class CommentPage extends Component {
       )
     }
     return (
-      <div></div>
+      <div>Hi Rong</div>
     )
   }
 }

@@ -13,15 +13,15 @@ var Comment=(props)=> {
       )
     })
     return(
-      <div> 
-        <div >{props.data.body} </div>
+      <div style={commentStyle}> 
+        <div>{props.data.body} </div>
         {replies}
       </div>
 
     )
   }
   return (
-    <div> {props.data.body} </div>
+    <div style={commentStyle}> {props.data.body} </div>
   )
 }
 
