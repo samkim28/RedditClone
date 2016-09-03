@@ -5,7 +5,7 @@ var Entry = (props) => {
   var {data} = props;
   //if the domain is self.something then it will link to the comment section
   //then we make the title less than or equal to 50 chars with whole words. 
-  var noCrap = data.title.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_'"`~()]/g,"");
+  var noCrap = data.title.toLowerCase().replace(/[.,\/#!?$%\^&\*;:{}=\-_'"`~()]/g,"");
   var fiftyChars = noCrap.slice(0,51);
   var res;
   if(fiftyChars.length===51) {
