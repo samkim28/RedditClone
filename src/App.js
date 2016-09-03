@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import Entry from './Entry';
 
-
-var renderCount = 0;
 class App extends Component {
 
   constructor(props) {
@@ -11,7 +9,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    var myRequest = new Request ('https://www.reddit.com/r/all.json?obey_over18=true');
+    var myRequest = new Request ('https://www.reddit.com/r/natureismetal.json');
     fetch(myRequest).then(function(response) {
       console.log('response from api call', response);
       return response.json();
@@ -22,7 +20,6 @@ class App extends Component {
   }
 
   render(){ 
-    renderCount++;
     if(this.state.posts) {
       var arr = this.state.posts.map((curr, i)=>{
         return (
@@ -31,7 +28,6 @@ class App extends Component {
       })
       return (
         <div> 
-          {renderCount}
           {arr}
         </div>
       )
