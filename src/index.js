@@ -7,7 +7,7 @@ var Root = () => {
   return (
     <Router history={browserHistory} > 
       <Route path={'/'} component={App} />
-      <Route path={'/r/:subreddit/comments/:id/:title'} component={Comments} />
+      <Route path={'/r/:subreddit/comments/:id(/:title)'} component={Comments} />
     </Router>
   )
 }
