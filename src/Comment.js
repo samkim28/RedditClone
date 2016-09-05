@@ -28,7 +28,6 @@ class Comment extends Component{
   render() {
     var headStyle = {
       padding: '0px 0px 0px 20px',
-      //fontStyle: this.state.hidden ? 'italic':'normal',
       color: this.state.hidden? 'green':'black'
     }
     var bodyStyle = {
@@ -47,7 +46,7 @@ class Comment extends Component{
       })
       return(
         <div > 
-          <div style={headStyle} onClick={(e)=>{this.onClick(); e.stopPropagation();}  } >{this.state.hidden?'[+]':'[-]'} {this.props.data.author} children:{numChildren}</div>
+          <div style={headStyle} onClick={(e)=>{this.onClick(); e.stopPropagation();}  } >{this.state.hidden?'[+]':'[--]'} {this.props.data.author} children:{numChildren}</div>
           <div style={bodyStyle}>
             <div>{this.props.data.body} </div>
             {replies}
@@ -57,7 +56,7 @@ class Comment extends Component{
     }
     return (
       <div>
-        <div style={headStyle} onClick={(e)=>{this.onClick(); e.stopPropagation();}} >{this.state.hidden?'[+]':'[-]'} {this.props.data.author} </div>
+        <div style={headStyle} onClick={(e)=>{this.onClick(); e.stopPropagation();}} >{this.state.hidden?'[+]':'[--]'} {this.props.data.author} </div>
         <div style={bodyStyle}> {this.props.data.body} </div>
       </div>
     ) 

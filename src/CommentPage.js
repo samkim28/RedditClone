@@ -6,30 +6,36 @@ class CommentPage extends Component {
     super(props);
     this.state={
       comments: null,
+      header: null
     };
   }
 
-
   componentDidMount() {
-    //var myRequest = new Request(`https://www.reddit.com/r/television/comments/50uwdr.json`);
     var myRequest = new Request(`https://www.reddit.com${this.props.location.pathname}.json`)
     fetch(myRequest).then(function(response) {
       console.log('response from api call', response);
       return response.json();
     }).then(function(json){
       console.log('the json response from api call', json[1].data.children);
-      this.setState({comments:json[1].data.children})
+      this.setState({comments:json[1].data.children, header: json[0].data.children[0].data})
     }.bind(this)) 
   }
+
   render() {
     if(this.state.comments) {
+      var {header}=this.state;
       var replies = this.state.comments.map((reply)=>{
         return(
           <Comment key={reply.data.id} data={reply.data}></Comment>
         );
       })
+      //i don't think i need to check header in state
       return (
-        <div> {replies} </div>
+        <div>
+          <div> {header.title} {header.author} {header.upvote_ratio} </div>
+          <div> comment box here </div>
+          <div> {replies} </div>
+        </div>
       )
     }
     return (
