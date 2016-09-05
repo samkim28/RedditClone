@@ -3,6 +3,12 @@ import {Link} from 'react-router';
 
 var Entry = (props) => {
   var {data} = props;
+
+  //decoding the url entities in case there are any
+  var elem = document.createElement('textarea');
+  elem.innerHTML = data.url;
+  var decodedUrl = elem.value;
+
   //if the domain is self.something then it will link to the comment section
   //then we make the title less than or equal to 50 chars with whole words. 
   var noCrap = data.title.toLowerCase().replace(/[.,\/#!?$%\^&\*;:{}=\-_'"`~()]/g,"");
@@ -30,7 +36,7 @@ var Entry = (props) => {
     <div> 
       {data.ups}  
       <img src={data.thumbnail} />
-      <a href={data.url}> {data.title} </a>
+      <a href={decodedUrl}> {data.title} </a>
       <Link to={{ pathname: path}}> comments </Link>
     </div>
   )
