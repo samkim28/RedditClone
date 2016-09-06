@@ -9,7 +9,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    var myRequest = new Request ('https://www.reddit.com/r/natureismetal.json');
+    var myRequest = new Request ('https://www.reddit.com/r/all.json');
     fetch(myRequest).then(function(response) {
       console.log('response from api call', response);
       return response.json();

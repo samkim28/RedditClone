@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+// import marked from 'marked';
+import Markdown from 'react-markdown';
 
 class Comment extends Component{
   constructor(props) {
@@ -48,7 +50,7 @@ class Comment extends Component{
         <div > 
           <div style={headStyle} onClick={(e)=>{this.onClick(); e.stopPropagation();}  } >{this.state.hidden?'[+]':'[--]'} {this.props.data.author} children:{numChildren}</div>
           <div style={bodyStyle}>
-            <div>{this.props.data.body} </div>
+            <Markdown source ={this.props.data.body}/>
             {replies}
           </div>
         </div>
@@ -57,7 +59,9 @@ class Comment extends Component{
     return (
       <div>
         <div style={headStyle} onClick={(e)=>{this.onClick(); e.stopPropagation();}} >{this.state.hidden?'[+]':'[--]'} {this.props.data.author} </div>
-        <div style={bodyStyle}> {this.props.data.body} </div>
+        <div style={bodyStyle}> 
+          <Markdown source ={this.props.data.body}> </Markdown>
+        </div>
       </div>
     ) 
   }
