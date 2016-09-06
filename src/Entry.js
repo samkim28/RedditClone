@@ -3,7 +3,6 @@ import {Link} from 'react-router';
 
 var Entry = (props) => {
   var {data} = props;
-
   //decoding the url entities in case there are any
   var elem = document.createElement('textarea');
   elem.innerHTML = data.url;
