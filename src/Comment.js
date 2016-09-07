@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // import marked from 'marked';
-import Markdown from 'react-markdown';
+import Markdown from './Markdown';
 
 class Comment extends Component{
   constructor(props) {
@@ -28,6 +28,11 @@ class Comment extends Component{
   }
 
   render() {
+    //decoding the url entities in case there are any
+    var elem = document.createElement('textarea');
+    elem.innerHTML = this.props.data.body;
+    var body = elem.value;
+    
     var headStyle = {
       padding: '0px 0px 0px 20px',
       color: this.state.hidden? 'green':'black'
@@ -35,7 +40,6 @@ class Comment extends Component{
     var bodyStyle = {
       padding: '0px 0px 0px 20px',
       display: this.state.hidden ? 'none':'block'
-
     };
 
     //props.data contains info for the current comment
@@ -50,7 +54,7 @@ class Comment extends Component{
         <div > 
           <div style={headStyle} onClick={(e)=>{this.onClick(); e.stopPropagation();}  } >{this.state.hidden?'[+]':'[--]'} {this.props.data.author} children:{numChildren}</div>
           <div style={bodyStyle}>
-            <Markdown source ={this.props.data.body}/>
+            <Markdown source ={body}/>
             {replies}
           </div>
         </div>
@@ -60,7 +64,7 @@ class Comment extends Component{
       <div>
         <div style={headStyle} onClick={(e)=>{this.onClick(); e.stopPropagation();}} >{this.state.hidden?'[+]':'[--]'} {this.props.data.author} </div>
         <div style={bodyStyle}> 
-          <Markdown source ={this.props.data.body}> </Markdown>
+          <Markdown source ={body}/> 
         </div>
       </div>
     ) 
