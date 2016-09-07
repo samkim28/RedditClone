@@ -10,10 +10,12 @@ app.use(function(req, res, next) {
 
 //this sets up routes for the other files
 app.use('/static', express.static(path.join(__dirname, '/../')));
-
+app.get('/favicon.ico', function(req,res) {
+   res.sendFile(path.join(__dirname, '/../bulb.png'))
+})
 
 //this sends the index.html for the initial page load 
-app.get('/*', function(req, res, next) {
+app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '/../index.html'));
 })
 
