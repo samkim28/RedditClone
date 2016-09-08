@@ -8,7 +8,6 @@ class Comment extends Component{
     this.state = {
       hidden:false
     };
-
     this.onClick = this.onClick.bind(this);
   };
 
@@ -32,28 +31,21 @@ class Comment extends Component{
     var elem = document.createElement('textarea');
     elem.innerHTML = this.props.data.body;
     var body = elem.value;
-    
-    var headStyle = {
-      padding: '0px 0px 0px 20px',
-      color: this.state.hidden? 'green':'black'
-    }
-    var bodyStyle = {
-      padding: '0px 0px 0px 20px',
-      display: this.state.hidden ? 'none':'block'
-    };
 
     //props.data contains info for the current comment
     if(this.props.data.replies) {
       var numChildren = this.getNumChildren(this.props.data.replies.data.children);
-      var replies = this.props.data.replies.data.children.map((reply)=>{
+      
+      var filteredChildren = this.props.data.replies.data.children.filter((curr)=>curr.kind!=='more')
+      var replies = filteredChildren.map((reply)=>{
         return (
           <Comment key={reply.data.id} data={reply.data}> </Comment> 
         )
-      })
+      }) 
       return(
         <div > 
-          <div style={headStyle} onClick={(e)=>{this.onClick(); e.stopPropagation();}  } >{this.state.hidden?'[+]':'[--]'} {this.props.data.author} children:{numChildren}</div>
-          <div style={bodyStyle}>
+          <div className={this.state.hidden?'hiddenCommentHeader':'visibleCommentHeader'} onClick={(e)=>{this.onClick(); e.stopPropagation();}  } >{this.state.hidden?'[+]':'[--]'} {this.props.data.author} children:{numChildren}</div>
+          <div className={this.state.hidden?'hiddenCommentBody':'visibleCommentBody'}>
             <Markdown source ={body}/>
             {replies}
           </div>
@@ -62,8 +54,8 @@ class Comment extends Component{
     }
     return (
       <div>
-        <div style={headStyle} onClick={(e)=>{this.onClick(); e.stopPropagation();}} >{this.state.hidden?'[+]':'[--]'} {this.props.data.author} </div>
-        <div style={bodyStyle}> 
+        <div className={this.state.hidden?'hiddenCommentHeader':'visibleCommentHeader'}  onClick={(e)=>{this.onClick(); e.stopPropagation();}} >{this.state.hidden?'[+]':'[--]'} {this.props.data.author} </div>
+        <div className={this.state.hidden?'hiddenCommentBody':'visibleCommentBody'}> 
           <Markdown source ={body}/> 
         </div>
       </div>

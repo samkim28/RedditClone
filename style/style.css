@@ -1,11 +1,32 @@
-/*.head {
-  padding: '0px 0px 0px 20px',
-  color: this.state.hidden? 'green':'black'
-}*/
-
 
 blockquote {
   border-left: 2px solid #c5c1ad;
   padding: 0 8px;
   margin-left: 5px;
 }
+
+.commentBox {
+  width: 500px;
+  height: 100px;
+}
+
+.visibleCommentHeader {
+  padding: 0px 0px 0px 20px;
+  color: black;
+}
+
+.hiddenCommentHeader{
+  padding: 0px 0px 0px 20px;
+  color: green;
+}
+
+.visibleCommentBody{
+  padding: 0px 0px 0px 20px;
+  display: block;
+}
+
+.hiddenCommentBody {
+  padding: 0px 0px 0px 20px;
+  display: none;
+};
+
