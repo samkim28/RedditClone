@@ -22,13 +22,11 @@ class CommentPage extends Component {
   }
 
   render() {
-    var boxStyle = {
-      width: '500px',
-      height: '100px'
-    }
+  
     if(this.state.comments) {
       var {header}=this.state;
-      var replies = this.state.comments.map((reply)=>{
+      var filteredComments = this.state.comments.filter((curr)=>curr.kind!=='more');
+      var replies = filteredComments.map((reply)=>{
         return(
           <Comment key={reply.data.id} data={reply.data}></Comment>
         );
@@ -37,7 +35,7 @@ class CommentPage extends Component {
       return (
         <div>
           <div> {header.title} {header.author} {header.upvote_ratio} </div>
-          <textarea rows="1" cols="1" style={boxStyle} ></textarea>
+          <textarea rows="1" cols="1" className = 'commentBox' ></textarea>
           <div> {replies} </div>
         </div>
       )
