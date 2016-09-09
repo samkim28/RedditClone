@@ -21,6 +21,8 @@ var Entry = (props) => {
   else {
     res = fiftyChars.split(' ').join('_');
   }
+  //some titles have only symbols and will end up as blank
+  if(res==='') res = '_';
   var path = `/r/${data.subreddit}/comments/${data.id}/${res}/`
   if(props.data.domain.slice(0,4) === 'self') {
     return(
