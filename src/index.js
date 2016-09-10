@@ -7,8 +7,8 @@ import CommentPage from './CommentPage';
 
 var Root = () => {
   return (
-    <Router history={browserHistory}> 
-      <Route path={'/'} component={App} />
+    <Router history={browserHistory}>
+      <Route path={'/r/:subreddit'} component={App} />
       <Route path={'/r/:subreddit/comments/:id(/:title)'} component={CommentPage} />
     </Router>
   )

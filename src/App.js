@@ -9,17 +9,21 @@ class App extends Component {
   }
 
   componentDidMount() {
-    var myRequest = new Request ('https://www.reddit.com/r/all.json');
+    var {location} = this.props;
+    var myRequest = new Request (`https://www.reddit.com/${location.pathname}.json${location.search}`);
     fetch(myRequest).then(function(response) {
       console.log('response from api call', response);
       return response.json();
     }).then(function(json) {
       console.log('the json response from api call', json.data);
-      this.setState({posts:json.data.children});
+      this.setState({posts:json.data.children, afterID:json.data.children[24].data.name, beforeID:json.data.children[0].data.name});
     }.bind(this))
   }
-
+  
   render(){ 
+    console.log(this.props.location)
+    var path = `/r/${this.props.params.subreddit}/`;
+
     if(this.state.posts) {
       var arr = this.state.posts.map((curr, i)=>{
         return (
@@ -29,6 +33,8 @@ class App extends Component {
       return (
         <div> 
           {arr}
+          <a href={`${location.pathname}?count=25&before=${this.state.beforeID}`}> prev</a>
+          <a href={`${location.pathname}?count=25&after=${this.state.afterID}`}> next</a>
         </div>
       )
     }
