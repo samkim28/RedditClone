@@ -36,7 +36,9 @@ var Entry = (props) => {
   return (
     <div> 
       {data.ups}  
-      <img src={data.thumbnail} />
+      <a href={decodedUrl}>
+        <img src={data.thumbnail} />
+      </a>
       <a href={decodedUrl}> {data.title} </a>
       <Link to={{ pathname: path}}> comments </Link>
     </div>
