@@ -1,3 +1,12 @@
+body {
+    font-size: 16px;
+    font-weight: normal;
+    font-family: verdanda;
+}
+
+a {
+    text-decoration: none;
+}
 
 blockquote {
   border-left: 2px solid #c5c1ad;
