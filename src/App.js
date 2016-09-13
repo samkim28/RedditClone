@@ -41,6 +41,9 @@ class App extends Component {
     //var before = this.props.location.query.before || null;
     var countOnAfterClick;
     var countOnBeforeClick; 
+
+    //we use count and before/after as different states.
+    //the clicks on prev/next depends on the states before/after
     if(this.props.location.query.before){
       countOnBeforeClick = Number(count)-25;
       countOnAfterClick = Number(count)-1;
