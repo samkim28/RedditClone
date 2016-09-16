@@ -11,8 +11,18 @@ var AppHeader = (props)=>{
       <Link to={{pathname:'/r/WorldNews'}}> WorldNews </Link>
       <Link to={{pathname:'/r/TodayILearned'}}> TodayILearned </Link>
       <Link to={{pathname:'/r/Pics'}}> Pics </Link>
-      <Link to={{pathname:'/r/Gifs'}}> Gifs </Link>
       <Link to={{pathname:'/r/News'}}> News </Link>
+      <Link to={{pathname:'/r/Gifs'}}> Gifs </Link>
+      <Link to={{pathname:'/r/Gaming'}}> Gaming </Link>
+      <Link to={{pathname:'/r/Aww'}}> Aww </Link>
+      <Link to={{pathname:'/r/Movies'}}> Movies </Link>
+      <Link to={{pathname:'/r/Showerthoughts'}}> Showerthoughts </Link>
+      <Link to={{pathname:'/r/Mildlyinteresting'}}> Mildlyinteresting </Link>
+      <Link to={{pathname:'/r/Jokes'}}> Jokes </Link>
+
+
+
+
 
       {props.children}
     </div>
