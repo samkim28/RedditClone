@@ -19,6 +19,9 @@ var AppHeader = (props)=>{
       <Link to={{pathname:'/r/Showerthoughts'}}> Showerthoughts </Link>
       <Link to={{pathname:'/r/Mildlyinteresting'}}> Mildlyinteresting </Link>
       <Link to={{pathname:'/r/Jokes'}}> Jokes </Link>
+      <Link to={{pathname:'/r/Nottheonion'}}> Nottheonion </Link>
+      <Link to={{pathname:'/r/Iama'}}> IAMA </Link>
+
 
 
 
