@@ -5,6 +5,7 @@ var AppHeader = (props)=>{
 
   return(
     <div>
+      <Link to={{pathname:'/r/Front'}}> Front </Link>
       <Link to={{pathname:'/r/AskReddit'}}> AskReddit </Link>
       <Link to={{pathname:'/r/Funny'}}> Funny </Link>
       <Link to={{pathname:'/r/Vidoes'}}> Videos </Link>
