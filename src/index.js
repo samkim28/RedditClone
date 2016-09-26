@@ -12,7 +12,7 @@ var Root = () => {
     <Router history={browserHistory}>
       <Route path={'/'} component={AppHeader} > 
         <IndexRoute component={App}> </IndexRoute> 
-        <Route path={'/r/:subreddit'} component={App}>  </Route>
+        <Route path={'/r/:subreddit(/:order)'} component={App}> </Route>
       </Route>
       <Route path={'/r/:subreddit/comments/:id(/:title)'} component={CommentPage} />
     </Router>
