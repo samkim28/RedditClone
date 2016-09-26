@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Entry from './Entry';
+import {Link} from 'react-router';
 
 class App extends Component {
 
@@ -21,7 +22,8 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.params.subreddit !== prevProps.params.subreddit) {
+    //if(this.props.params.subreddit !== prevProps.params.subreddit || this.props.params.order !== prevProps.params.order) {
+    if(this.props.location.pathname !== prevProps.location.pathname || this.props.location.search !== prevProps.location.search) {
       var {location} = this.props;
       var myRequest = new Request (`https://www.reddit.com${location.pathname}/.json${location.search}`);
       fetch(myRequest).then(function(response) {
@@ -36,7 +38,7 @@ class App extends Component {
 
   render(){ 
     console.log(this.props.location)
-    var path = `/r/${this.props.params.subreddit}/`;
+    // var path = `/r/${this.props.params.subreddit}/`;
     var count = this.props.location.query.count || 0;
     //var before = this.props.location.query.before || null;
     var countOnAfterClick;
@@ -62,6 +64,8 @@ class App extends Component {
       if(this.state.beforeID===null) {
         return (
           <div> 
+            <Link to={{pathname:`/r/${this.props.params.subreddit}/new`}}> new </Link>
+
             {arr}
             <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
           </div>
@@ -69,6 +73,7 @@ class App extends Component {
       }
       return (
           <div> 
+            <Link to={{pathname:`/r/${this.props.params.subreddit}/new`}}> new </Link>
             {arr}
             <a href={`${location.pathname}?count=${countOnBeforeClick}&before=${this.state.beforeID}`}> prev</a>
             <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
