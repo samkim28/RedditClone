@@ -65,7 +65,12 @@ class App extends Component {
         return (
           <div> 
             <Link to={{pathname:`/r/${this.props.params.subreddit}/new`}}> new </Link>
-
+            <Link to={{pathname:`/r/${this.props.params.subreddit}/rising`}}> rising </Link>
+            <Link to={{pathname:`/r/${this.props.params.subreddit}/controversial`}}> controversial </Link>
+            <Link to={{pathname:`/r/${this.props.params.subreddit}/top`}}> top </Link>
+            <Link to={{pathname:`/r/${this.props.params.subreddit}/guilded`}}> guilded </Link>
+            <Link to={{pathname:`/r/${this.props.params.subreddit}/wiki`}}> wiki </Link>
+            <Link to={{pathname:`/r/${this.props.params.subreddit}/promoted`}}> promoted </Link>
             {arr}
             <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
           </div>
