@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 import Entry from './Entry';
 import {Link} from 'react-router';
+import ContactForm from './ContactForm';
+
+var contactTemplate = {name: "", email: "", description: "", errors: {}};
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {posts: null};
+    this.state = {posts: null, newContact: contactTemplate};
+
   }
 
   componentDidMount() {
@@ -33,6 +37,26 @@ class App extends Component {
         console.log('the json response from api call', json.data);
         this.setState({posts:json.data.children, afterID:json.data.after, beforeID:json.data.before});
       }.bind(this))
+    }
+  }
+
+  onFormChange(value) {
+    this.setState({newContact:value})
+  }
+
+  submitNewContact(contact) {
+    var contactCopy = {...contact, errors:{}};
+    if(!contactCopy.name) {
+      contactCopy.errors.name='put name';
+    }
+    if (!/.+@.+\..+/.test(contact.email)) {
+      contactCopy.errors.email = "Please enter your new contact's email";
+    }
+    if(Object.keys(contactCopy.errors).length===0) {
+      this.setState({contacts:[...this.state.contacts, contact], newContact:contactTemplate })
+    }
+    else {
+      this.setState({newContact:contactCopy})
     }
   }
 
@@ -70,6 +94,8 @@ class App extends Component {
             <Link to={{pathname:`/r/${this.props.params.subreddit}/top`}}> top </Link>
             {arr}
             <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
+            <ContactForm newContact={this.state.newContact} onFormChange={this.onFormChange} submitNewContact={this.submitNewContact}/>
+
           </div>
         )    
       }
