@@ -1,3 +1,5 @@
+import React from 'react';
+
 var ContactForm = (props) => {
   var {onFormChange} = props;
   var {submitNewContact} = props;
@@ -34,3 +36,5 @@ var ContactForm = (props) => {
     </form>
   )
 }
+
+export default ContactForm;
