@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import Entry from './Entry';
 import {Link} from 'react-router';
-import ContactForm from './ContactForm';
+import UserForm from './UserForm';
 
-var contactTemplate = {name: "", email: "", description: "", errors: {}};
+var userTemplate = {name: "", email: "", description: "", errors: {}};
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {posts: null, newContact: contactTemplate};
+    this.state = {posts: null, newUser: userTemplate};
+    this.onFormChange = this.onFormChange.bind(this);
+    this.submitNewUser = this.submitNewUser.bind(this);
 
   }
 
@@ -41,27 +43,27 @@ class App extends Component {
   }
 
   onFormChange(value) {
-    this.setState({newContact:value})
+    this.setState({newUser:value})
   }
 
-  submitNewContact(contact) {
-    var contactCopy = {...contact, errors:{}};
-    if(!contactCopy.name) {
-      contactCopy.errors.name='put name';
+  submitNewUser(user) {
+    var userCopy = {...user, errors:{}};
+    if(!userCopy.name) {
+      userCopy.errors.name='put name';
     }
-    if (!/.+@.+\..+/.test(contact.email)) {
-      contactCopy.errors.email = "Please enter your new contact's email";
+    if (!/.+@.+\..+/.test(user.email)) {
+      userCopy.errors.email = "Please enter your new user's email";
     }
-    if(Object.keys(contactCopy.errors).length===0) {
-      this.setState({contacts:[...this.state.contacts, contact], newContact:contactTemplate })
+    if(Object.keys(userCopy.errors).length===0) {
+      this.setState({newUser:userTemplate })
     }
     else {
-      this.setState({newContact:contactCopy})
+      this.setState({newUser:userCopy})
     }
   }
 
   render(){ 
-    console.log(this.props.location)
+    //console.log(this.props.location)
     // var path = `/r/${this.props.params.subreddit}/`;
     var count = this.props.location.query.count || 0;
     //var before = this.props.location.query.before || null;
@@ -94,7 +96,7 @@ class App extends Component {
             <Link to={{pathname:`/r/${this.props.params.subreddit}/top`}}> top </Link>
             {arr}
             <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
-            <ContactForm newContact={this.state.newContact} onFormChange={this.onFormChange} submitNewContact={this.submitNewContact}/>
+            <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
 
           </div>
         )    
