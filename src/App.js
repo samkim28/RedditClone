@@ -63,7 +63,8 @@ class App extends Component {
   }
 
   render(){ 
-    //console.log(this.props.location)
+    // var subreddit = this.props.params.subreddit || '';
+    console.log(this.props.location)
     // var path = `/r/${this.props.params.subreddit}/`;
     var count = this.props.location.query.count || 0;
     //var before = this.props.location.query.before || null;
@@ -80,7 +81,7 @@ class App extends Component {
       countOnBeforeClick = Number(count)+1;
       countOnAfterClick = Number(count)+25;
     }
-  
+    
     if(this.state.posts) {
       var arr = this.state.posts.map((curr, i)=>{
         return (
