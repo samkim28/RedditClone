@@ -105,6 +105,9 @@ class FrontApp extends Component {
       return (
           <div> 
             <Link to={{pathname:`/new`}}> new </Link>
+            <Link to={{pathname:`/rising`}}> rising </Link>
+            <Link to={{pathname:`/controversial`}}> controversial </Link>
+            <Link to={{pathname:`/top`}}> top </Link>
             {arr}
             <a href={`${location.pathname}?count=${countOnBeforeClick}&before=${this.state.beforeID}`}> prev</a>
             <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
