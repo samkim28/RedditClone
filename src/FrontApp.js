@@ -5,7 +5,7 @@ import UserForm from './UserForm';
 
 var userTemplate = {name: "", email: "", description: "", errors: {}};
 
-class App extends Component {
+class FrontApp extends Component {
 
   constructor(props) {
     super(props);
@@ -91,10 +91,10 @@ class App extends Component {
       if(this.state.beforeID===null) {
         return (
           <div> 
-            <Link to={{pathname:`/r/${this.props.params.subreddit}/new`}}> new </Link>
-            <Link to={{pathname:`/r/${this.props.params.subreddit}/rising`}}> rising </Link>
-            <Link to={{pathname:`/r/${this.props.params.subreddit}/controversial`}}> controversial </Link>
-            <Link to={{pathname:`/r/${this.props.params.subreddit}/top`}}> top </Link>
+            <Link to={{pathname:`/new`}}> new </Link>
+            <Link to={{pathname:`/rising`}}> rising </Link>
+            <Link to={{pathname:`/controversial`}}> controversial </Link>
+            <Link to={{pathname:`/top`}}> top </Link>
             {arr}
             <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
             <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
@@ -104,10 +104,10 @@ class App extends Component {
       }
       return (
           <div> 
-            <Link to={{pathname:`/r/${this.props.params.subreddit}/new`}}> new </Link>
-            <Link to={{pathname:`/r/${this.props.params.subreddit}/rising`}}> rising </Link>
-            <Link to={{pathname:`/r/${this.props.params.subreddit}/controversial`}}> controversial </Link>
-            <Link to={{pathname:`/r/${this.props.params.subreddit}/top`}}> top </Link>
+            <Link to={{pathname:`/new`}}> new </Link>
+            <Link to={{pathname:`/rising`}}> rising </Link>
+            <Link to={{pathname:`/controversial`}}> controversial </Link>
+            <Link to={{pathname:`/top`}}> top </Link>
             {arr}
             <a href={`${location.pathname}?count=${countOnBeforeClick}&before=${this.state.beforeID}`}> prev</a>
             <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
@@ -121,5 +121,5 @@ class App extends Component {
 
 }
 
-export default App;
+export default FrontApp;
 
