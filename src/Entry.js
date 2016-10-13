@@ -34,7 +34,7 @@ var Entry = (props) => {
     )
   }
   return (
-    <div> 
+    <div className='Entry'> 
       {data.ups}  
       <a href={decodedUrl}>
         <img src={data.thumbnail} />
