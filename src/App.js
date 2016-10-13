@@ -91,13 +91,13 @@ class App extends Component {
       if(this.state.beforeID===null) {
         return (
           <div> 
+            <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
             <Link to={{pathname:`/r/${this.props.params.subreddit}/new`}}> new </Link>
             <Link to={{pathname:`/r/${this.props.params.subreddit}/rising`}}> rising </Link>
             <Link to={{pathname:`/r/${this.props.params.subreddit}/controversial`}}> controversial </Link>
             <Link to={{pathname:`/r/${this.props.params.subreddit}/top`}}> top </Link>
             {arr}
             <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
-            <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
 
           </div>
         )    

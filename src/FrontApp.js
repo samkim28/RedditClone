@@ -91,13 +91,14 @@ class FrontApp extends Component {
       if(this.state.beforeID===null) {
         return (
           <div> 
+
             <Link to={{pathname:`/new`}}> new </Link>
             <Link to={{pathname:`/rising`}}> rising </Link>
             <Link to={{pathname:`/controversial`}}> controversial </Link>
             <Link to={{pathname:`/top`}}> top </Link>
+            <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
             {arr}
             <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
-            <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
 
           </div>
         )    

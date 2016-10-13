@@ -92,3 +92,7 @@ blockquote {
   border-color: #b30e2f;
 }
 
+.Entry {
+  display: flex;
+  align-items: flex-start;
+}
