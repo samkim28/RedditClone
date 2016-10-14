@@ -91,7 +91,6 @@ class FrontApp extends Component {
       if(this.state.beforeID===null) {
         return (
           <div> 
-
             <Link to={{pathname:`/new`}}> new </Link>
             <Link to={{pathname:`/rising`}}> rising </Link>
             <Link to={{pathname:`/controversial`}}> controversial </Link>

@@ -73,8 +73,9 @@ blockquote {
   margin-top: 4px;
 }
 
-
+/*change1*/
 .UserForm {
+  float: right;
   padding: 8px 24px;
 }
 .UserForm > input,
@@ -96,3 +97,5 @@ blockquote {
   display: flex;
   align-items: flex-start;
 }
+
+
