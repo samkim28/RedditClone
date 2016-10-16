@@ -15,8 +15,8 @@ var Root = () => {
         <IndexRoute component={FrontApp}> </IndexRoute> 
         <Route path={'/r/:subreddit(/:order)'} component={App}> </Route>
         <Route path={'/:order'} component={FrontApp}> </Route>
+        <Route path={'/r/:subreddit/comments/:id(/:title)'} component={CommentPage} />
       </Route>
-      <Route path={'/r/:subreddit/comments/:id(/:title)'} component={CommentPage} />
     </Router>
   )
 }
