@@ -27,17 +27,21 @@ var Entry = (props) => {
   if(props.data.domain.slice(0,4) === 'self') {
     return(
       <div> 
-        {data.ups}  
-        <Link to={{ pathname: path}}> {data.title} </Link> 
-        <Link to={{ pathname: path}}> comments </Link>
+        <div className ='Ups'>
+          {data.ups}  
+        </div>
+        <Link className='Link' to={{ pathname: path}}> {data.title} </Link> 
+        <Link className='Link' to={{ pathname: path}}> comments </Link>
       </div>
     )
   }
   return (
     <div className='Entry'> 
-      {data.ups}  
+      <div className ='Ups'>
+        {data.ups}  
+      </div>
       <a href={decodedUrl}>
-        <img src={data.thumbnail} />
+        <img className='EntryImage' src={data.thumbnail} />
       </a>
       <a href={decodedUrl}> {data.title} </a>
       <Link to={{ pathname: path}}> comments </Link>
