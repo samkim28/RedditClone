@@ -98,7 +98,21 @@ blockquote {
 
 .Entry {
   display: flex;
+  /*justify-content: space-around;*/
   align-items: flex-start;
+}
+
+.Ups {
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.Link {
+
+}
+
+.EntryImage {
+  width: 70px;
 }
 
 
