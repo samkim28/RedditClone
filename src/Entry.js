@@ -30,11 +30,16 @@ var Entry = (props) => {
         <div className ='Ups'>
           {data.ups}  
         </div>
-        <Link className='Link' to={{ pathname: path}}> {data.title} </Link> 
-        <Link className='Link' to={{ pathname: path}}> comments </Link>
+        <p className ='Title'> 
+          <Link to={{ pathname: path}}> {data.title} </Link> 
+        </p>
+        <div>        
+          <Link to={{ pathname: path}}> comments </Link>
+        </div>
       </div>
     )
   }
+  
   return (
     <div className='Entry'> 
       <div className ='Ups'>
@@ -43,8 +48,19 @@ var Entry = (props) => {
       <a href={decodedUrl}>
         <img className='EntryImage' src={data.thumbnail} />
       </a>
-      <a href={decodedUrl}> {data.title} </a>
-      <Link to={{ pathname: path}}> comments </Link>
+      <div > 
+        <div>
+          <a className = 'Title' href={decodedUrl}> {data.title} </a>
+        </div>
+        <div style = {{fontSize:'0.9em', color:'#888' }}>
+          submitted X hours ago by Y to Z
+        </div>
+        <div style = {{fontSize:'0.9em', color:'white'}}>
+          <Link to={{ pathname: path}}> comments </Link>
+        </div>
+      </div>
+
+      
     </div>
   )
 }

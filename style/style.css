@@ -107,7 +107,8 @@ blockquote {
   flex-shrink: 0;
 }
 
-.Link {
+.Title {
+  font-size: large;
 
 }
 
