@@ -55,8 +55,8 @@ var Entry = (props) => {
         <div style = {{fontSize:'0.9em', color:'#888' }}>
           submitted X hours ago by Y to Z
         </div>
-        <div style = {{fontSize:'0.9em', color:'white'}}>
-          <Link to={{ pathname: path}}> comments </Link>
+        <div >
+          <Link style = {{fontSize:'0.9em', color:'#888'}} to={{ pathname: path}}> comments </Link>
         </div>
       </div>
 
