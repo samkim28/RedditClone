@@ -100,6 +100,7 @@ blockquote {
   display: flex;
   /*justify-content: space-around;*/
   align-items: flex-start;
+  font: normal x-small verdana,arial,helvetica,sans-serif;
 }
 
 .Ups {

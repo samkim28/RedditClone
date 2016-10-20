@@ -52,11 +52,11 @@ var Entry = (props) => {
         <div>
           <a className = 'Title' href={decodedUrl}> {data.title} </a>
         </div>
-        <div style = {{fontSize:'0.9em', color:'#888' }}>
+        <div style = {{fontSize:'0.85em', color:'#888' }}>
           submitted X hours ago by Y to Z
         </div>
         <div >
-          <Link style = {{fontSize:'0.9em', color:'#888'}} to={{ pathname: path}}> comments </Link>
+          <Link style = {{fontSize:'0.85em', color:'#888', fontWeight:'bold'}} to={{ pathname: path}}> comments </Link>
         </div>
       </div>
 
