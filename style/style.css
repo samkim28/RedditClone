@@ -100,7 +100,10 @@ blockquote {
   display: flex;
   /*justify-content: space-around;*/
   align-items: flex-start;
-  font: normal x-small verdana,sans-serif;
+  font-weight: normal;
+  font-size: x-small;
+  font-family: verdana, sans-serif;
+  margin-bottom: 8px;
 }
 
 .Ups {
@@ -109,12 +112,11 @@ blockquote {
 }
 
 .Title {
-  font-size: large;
-
+  font-size: medium;
 }
 
-.EntryImage {
-  width: 70px;
+.test {
+  background-image: url(sprite-reddit.AYIPPrZ9tAU.png);
 }
 
 
