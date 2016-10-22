@@ -40,23 +40,29 @@ var Entry = (props) => {
     )
   }
   
+  //For the date, the data.created_utc gives us back the time in seconds
+  //the date.now gives it back to us in milliseconds
+
+  //make img verticalAlign bottom so no extra space
   return (
     <div className='Entry'> 
+      <strong className='test'> hola </strong>
+
       <div className ='Ups'>
         {data.ups}  
       </div>
-      <a href={decodedUrl}>
-        <img className='EntryImage' src={data.thumbnail} />
+      <a style={{width: '70px', marginRight: '5px', marginBottom: '2px'}} href={decodedUrl}>
+        <img style={{width:'70px', verticalAlign: 'bottom'}} src={data.thumbnail} />
       </a>
       <div > 
         <div>
           <a className = 'Title' href={decodedUrl}> {data.title} </a>
         </div>
-        <div style = {{fontSize:'0.85em', color:'#888' }}>
-          submitted X hours ago by Y to Z
+        <div style = {{color:'#888' }}>
+          submitted {Math.floor((Date.now()-data.created_utc*1000)/3600000)} hours ago by {data.author} to /r/{data.subreddit}
         </div>
         <div >
-          <Link style = {{fontSize:'0.85em', color:'#888', fontWeight:'bold'}} to={{ pathname: path}}> comments </Link>
+          <Link style = {{ color:'#888', fontWeight:'bold'}} to={{ pathname: path}}> {data.num_comments} comments </Link>
         </div>
       </div>
 
