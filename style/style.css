@@ -1,7 +1,7 @@
 body {
   font-size: 16px;
   margin: 0;
-
+  padding: 0;
   font-weight: normal;
   font-size: x-small;
   font-family: verdana, sans-serif;
@@ -177,7 +177,7 @@ blockquote {
   padding-left: 5px;
   color: black;
   font-weight: normal;
-  margin-left: -5px;
+  /*margin-left: -5px;*/
   margin-right: 10px;
   cursor: pointer;
 }
@@ -186,6 +186,21 @@ blockquote {
   list-style: none;
   padding: 0;
   margin: 0;
-  
+  display: inline;
+  color: black;
 }
+
+.leftlinks a {
+  color: black;
+}
+
+#front {
+  color: orangered;
+  font-weight: bold
+}
+
+.leftlinks a:hover {
+  text-decoration: underline;
+}
+
 
