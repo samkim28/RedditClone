@@ -6,7 +6,15 @@ var AppHeader = (props)=>{
   return(
     <div >
       <div className = 'OrderLinks'>
-        <Link to={{pathname:'/r/Front'}}> Front </Link>
+        <div className='header' > 
+          <div className = 'dropdown'> my subreddits </div>
+          <div>
+            <ul className='leftlinks'>
+              <li> <Link to={{pathname:'/r'}}> Front </Link> </li>
+            </ul>
+          </div>
+
+        </div>
         <Link to={{pathname:'/r/AskReddit'}}> AskReddit </Link>
         <Link to={{pathname:'/r/Funny'}}> Funny </Link>
         <Link to={{pathname:'/r/Videos'}}> Videos </Link>
