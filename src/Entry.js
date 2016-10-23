@@ -46,22 +46,23 @@ var Entry = (props) => {
   //make img verticalAlign bottom so no extra space
   return (
     <div className='Entry'> 
-      <strong className='test'> hola </strong>
-
-      <div className ='Ups'>
-        {data.ups}  
+      <span className='rank'> 2 </span>
+      <div className='vote'> 
+        <div className='arrow up'> </div>
+        <div> {data.ups} </div>
+        <div className='arrow down'></div>
       </div>
       <a style={{width: '70px', marginRight: '5px', marginBottom: '2px'}} href={decodedUrl}>
         <img style={{width:'70px', verticalAlign: 'bottom'}} src={data.thumbnail} />
       </a>
       <div > 
-        <div>
-          <a className = 'Title' href={decodedUrl}> {data.title} </a>
+        <div className = 'Title'>
+          <a href={decodedUrl}> {data.title} </a>
         </div>
         <div style = {{color:'#888' }}>
           submitted {Math.floor((Date.now()-data.created_utc*1000)/3600000)} hours ago by {data.author} to /r/{data.subreddit}
         </div>
-        <div >
+        <div style= {{paddingTop:'1', paddingBottom:'1'}} >
           <Link style = {{ color:'#888', fontWeight:'bold'}} to={{ pathname: path}}> {data.num_comments} comments </Link>
         </div>
       </div>
