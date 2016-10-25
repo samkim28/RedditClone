@@ -14,7 +14,7 @@ var AppHeader = (props)=>{
   return(
     <div >
       <div className = 'OrderLinks'>
-        <div className='header' > 
+        <div className='topheader' > 
           <div className = 'dropdown'> my subreddits </div>
           <div>
             <ul className='leftlinks'>
@@ -45,6 +45,7 @@ var AppHeader = (props)=>{
             </ul>
           </div>
         </div>
+        
       </div>
       {props.children}
     </div>
