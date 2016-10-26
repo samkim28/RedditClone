@@ -1,3 +1,5 @@
+//only difference between this and frontapp is the /r/subreddit link for the ordering
+
 import React, {Component} from 'react';
 import Entry from './Entry';
 import {Link} from 'react-router';
@@ -91,25 +93,47 @@ class App extends Component {
       if(this.state.beforeID===null) {
         return (
           <div> 
+            <div className='blueheader'> 
+              <a href="/" id="header-img"></a>
+              &nbsp;
+              <ul className='tabmenu'> 
+                <li className = 'selected'><Link to={{pathname:`/`}}>hot</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/new`}}>new</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/rising`}}>rising</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/controversial`}}>controversial</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/top`}}>top</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/gilded`}}>gilded</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/wiki`}}>wiki</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/promoted`}}>promoted</Link></li>
+              </ul>
+            </div>
             <div>
-              <Link to={{pathname:`/r/${this.props.params.subreddit}/new`}}> new </Link>
-              <Link to={{pathname:`/r/${this.props.params.subreddit}/rising`}}> rising </Link>
-              <Link to={{pathname:`/r/${this.props.params.subreddit}/controversial`}}> controversial </Link>
-              <Link to={{pathname:`/r/${this.props.params.subreddit}/top`}}> top </Link>
             </div>
             <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
             {arr}
             <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
-
           </div>
-        )    
+        )     
       }
       return (
           <div> 
-            <Link to={{pathname:`/r/${this.props.params.subreddit}/new`}}> new </Link>
-            <Link to={{pathname:`/r/${this.props.params.subreddit}/rising`}}> rising </Link>
-            <Link to={{pathname:`/r/${this.props.params.subreddit}/controversial`}}> controversial </Link>
-            <Link to={{pathname:`/r/${this.props.params.subreddit}/top`}}> top </Link>
+            <div className='blueheader'> 
+              <a href="/" id="header-img"></a>
+              &nbsp;
+              <ul className='tabmenu'> 
+                <li className = 'selected'><Link to={{pathname:`/`}}>hot</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/new`}}>new</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/rising`}}>rising</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/controversial`}}>controversial</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/top`}}>top</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/gilded`}}>gilded</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/wiki`}}>wiki</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/promoted`}}>promoted</Link></li>
+              </ul>
+            </div>
+            <div>
+            </div>
+            <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
             {arr}
             <a href={`${location.pathname}?count=${countOnBeforeClick}&before=${this.state.beforeID}`}> prev</a>
             <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>

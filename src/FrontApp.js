@@ -103,32 +103,40 @@ class FrontApp extends Component {
                 <li><Link to={{pathname:`/gilded`}}>gilded</Link></li>
                 <li><Link to={{pathname:`/wiki`}}>wiki</Link></li>
                 <li><Link to={{pathname:`/promoted`}}>promoted</Link></li>
-
-
               </ul>
             </div>
             <div>
-              
             </div>
             <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
             {arr}
             <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
-
           </div>
         )    
       }
       return (
-          <div> 
-           
-            <Link to={{pathname:`/new`}}> new </Link>
-            <Link to={{pathname:`/rising`}}> rising </Link>
-            <Link to={{pathname:`/controversial`}}> controversial </Link>
-            <Link to={{pathname:`/top`}}> top </Link>
-            {arr}
-            <a href={`${location.pathname}?count=${countOnBeforeClick}&before=${this.state.beforeID}`}> prev</a>
-            <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
+        <div> 
+          <div className='blueheader'> 
+            <a href="/" id="header-img"></a>
+            &nbsp;
+            <ul className='tabmenu'> 
+              <li className = 'selected'><Link to={{pathname:`/`}}>hot</Link></li>
+              <li><Link to={{pathname:`/new`}}>new</Link></li>
+              <li><Link to={{pathname:`/rising`}}>rising</Link></li>
+              <li><Link to={{pathname:`/controversial`}}>controversial</Link></li>
+              <li><Link to={{pathname:`/top`}}>top</Link></li>
+              <li><Link to={{pathname:`/gilded`}}>gilded</Link></li>
+              <li><Link to={{pathname:`/wiki`}}>wiki</Link></li>
+              <li><Link to={{pathname:`/promoted`}}>promoted</Link></li>
+            </ul>
           </div>
-        )
+          <div>
+          </div>
+          <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
+          {arr}
+          <a href={`${location.pathname}?count=${countOnBeforeClick}&before=${this.state.beforeID}`}> prev</a>
+          <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
+        </div>
+      )  
     }
     return (
       <div>waiting</div>
