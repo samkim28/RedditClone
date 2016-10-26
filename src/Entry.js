@@ -25,19 +25,29 @@ var Entry = (props) => {
   if(res==='') res = '_';
   var path = `/r/${data.subreddit}/comments/${data.id}/${res}/`
   if(props.data.domain.slice(0,4) === 'self') {
-    return(
-      <div> 
-        <div className ='Ups'>
-          {data.ups}  
+    return (
+      <div className='Entry'> 
+        <span className='rank'> 2 </span>
+        <div className='vote'> 
+          <div className='arrow up'> </div>
+          <div> {data.ups} </div>
+          <div className='arrow down'></div>
         </div>
-        <p className ='Title'> 
-          <Link to={{ pathname: path}}> {data.title} </Link> 
-        </p>
-        <div>        
-          <Link to={{ pathname: path}}> comments </Link>
-        </div>
+        <a className='noimage' style={{width: '70px', height: '50px', marginRight: '5px', marginBottom: '2px'}} href={decodedUrl}></a>
+        <div > 
+          <div className = 'Title'>
+            <a href={decodedUrl}> {data.title} </a>
+          </div>
+          <div style = {{color:'#888' }}>
+            submitted {Math.floor((Date.now()-data.created_utc*1000)/3600000)} hours ago by {data.author} to /r/{data.subreddit}
+          </div>
+          <div style= {{paddingTop:'1', paddingBottom:'1'}} >
+            <Link style = {{ color:'#888', fontWeight:'bold'}} to={{ pathname: path}}> {data.num_comments} comments </Link>
+          </div>
+        </div>   
       </div>
     )
+
   }
   
   //For the date, the data.created_utc gives us back the time in seconds
@@ -65,9 +75,7 @@ var Entry = (props) => {
         <div style= {{paddingTop:'1', paddingBottom:'1'}} >
           <Link style = {{ color:'#888', fontWeight:'bold'}} to={{ pathname: path}}> {data.num_comments} comments </Link>
         </div>
-      </div>
-
-      
+      </div>   
     </div>
   )
 }

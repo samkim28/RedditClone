@@ -112,10 +112,15 @@ blockquote {
   margin-left: 5px;
 }
 
-.Ups {
-  width: 40px;
+.noimage {
+  background-image: url(https://www.redditstatic.com/sprite-reddit.AYIPPrZ9tAU.png);
+  background-position: 0px -229px;
+  background-repeat: no-repeat;
+  background-size: 70px 749px;
   flex-shrink: 0;
 }
+
+
 
 .Title {
   font-size: medium;
@@ -136,6 +141,7 @@ blockquote {
   font-family: arial;
   font-size: medium;
   text-align: right;
+  flex-shrink: 0;
 }
 
 .vote {
@@ -146,6 +152,7 @@ blockquote {
   width: 5.1ex;
   color: #c6c6c6;
   text-align: center;
+  flex-shrink: 0;
 }
 
 
