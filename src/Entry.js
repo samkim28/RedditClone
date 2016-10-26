@@ -24,7 +24,7 @@ var Entry = (props) => {
   //some titles have only symbols and will end up as blank
   if(res==='') res = '_';
   var path = `/r/${data.subreddit}/comments/${data.id}/${res}/`
-  if(props.data.domain.slice(0,4) === 'self') {
+  if(data.thumbnail.slice(0,4) !== 'http') {
     return (
       <div className='Entry'> 
         <span className='rank'> 2 </span>
@@ -33,7 +33,7 @@ var Entry = (props) => {
           <div> {data.ups} </div>
           <div className='arrow down'></div>
         </div>
-        <a className='noimage' style={{width: '70px', height: '50px', marginRight: '5px', marginBottom: '2px'}} href={decodedUrl}></a>
+        <a className={data.thumbnail} style={{width: '70px', height: '50px', marginRight: '5px', marginBottom: '2px'}} href={decodedUrl}></a>
         <div > 
           <div className = 'Title'>
             <a href={decodedUrl}> {data.title} </a>

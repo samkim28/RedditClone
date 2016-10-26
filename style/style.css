@@ -112,14 +112,34 @@ blockquote {
   margin-left: 5px;
 }
 
-.noimage {
-  background-image: url(https://www.redditstatic.com/sprite-reddit.AYIPPrZ9tAU.png);
-  background-position: 0px -229px;
+.self {
+  background-image: url(https://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: 0px -448px;
   background-repeat: no-repeat;
-  background-size: 70px 749px;
+  background-size: 70px 837px;
   flex-shrink: 0;
 }
-
+.default {
+  background-image: url(https://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: 0px -229px;
+  background-repeat: no-repeat;
+  background-size: 70px 837px;
+  flex-shrink: 0;
+}
+.image {
+  background-image: url(https://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: 0px -156px;
+  background-repeat: no-repeat;
+  background-size: 70px 837px;
+  flex-shrink: 0;
+}
+.nsfw {
+  background-image: url(https://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: 0px -302px;
+  background-repeat: no-repeat;
+  background-size: 70px 837px;
+  flex-shrink: 0;
+}
 
 
 .Title {
