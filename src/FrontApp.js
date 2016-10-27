@@ -81,11 +81,19 @@ class FrontApp extends Component {
       countOnBeforeClick = Number(count)+1;
       countOnAfterClick = Number(count)+25;
     }
+    var startCount;
+    //determine the post numberings
+    if(this.props.location.query.before) {
+      startCount = Number(count)-25;
+    }
+    else {
+      startCount = Number(count)+1;
+    }
     
     if(this.state.posts) {
       var arr = this.state.posts.map((curr, i)=>{
         return (
-          <Entry key = {curr.data.id} data = {curr.data}> </Entry>
+          <Entry key = {curr.data.id} count={startCount+i} data = {curr.data}> </Entry>
         );
       })
       if(this.state.beforeID===null) {
@@ -109,7 +117,7 @@ class FrontApp extends Component {
             </div>
             <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
             {arr}
-            <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
+            <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}>next</a>
           </div>
         )    
       }
@@ -133,8 +141,8 @@ class FrontApp extends Component {
           </div>
           <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
           {arr}
-          <a href={`${location.pathname}?count=${countOnBeforeClick}&before=${this.state.beforeID}`}> prev</a>
-          <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
+          <a href={`${location.pathname}?count=${countOnBeforeClick}&before=${this.state.beforeID}`}>prev</a>
+          <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}>next</a>
         </div>
       )  
     }

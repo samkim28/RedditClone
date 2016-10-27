@@ -27,7 +27,7 @@ var Entry = (props) => {
   if(data.thumbnail.slice(0,4) !== 'http') {
     return (
       <div className='Entry'> 
-        <span className='rank'> 2 </span>
+        <span className='rank'> {props.count} </span>
         <div className='vote'> 
           <div className='arrow up'> </div>
           <div> {data.ups} </div>
@@ -56,7 +56,7 @@ var Entry = (props) => {
   //make img verticalAlign bottom so no extra space
   return (
     <div className='Entry'> 
-      <span className='rank'> 2 </span>
+      <span className='rank'>{props.count}</span>
       <div className='vote'> 
         <div className='arrow up'> </div>
         <div> {data.ups} </div>
