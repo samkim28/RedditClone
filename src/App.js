@@ -83,11 +83,21 @@ class App extends Component {
       countOnBeforeClick = Number(count)+1;
       countOnAfterClick = Number(count)+25;
     }
+    var startCount;
+    //determine the post numberings
+    if(this.props.location.query.before) {
+      startCount = Number(count)-25;
+    }
+    else {
+      startCount = Number(count)+1;
+    }
+    //prev/next button styling
+    var buttons = {background:'#eee', border: '1px solid #ddd', borderRadius: '3px', padding:'1px 4px', fontWeight:'bold'};
     
     if(this.state.posts) {
       var arr = this.state.posts.map((curr, i)=>{
         return (
-          <Entry key = {curr.data.id} data = {curr.data}> </Entry>
+          <Entry key = {curr.data.id} count={startCount+i} countSize={(startCount+24).toString().length} data = {curr.data}> </Entry>
         );
       })
       if(this.state.beforeID===null) {
@@ -111,7 +121,10 @@ class App extends Component {
             </div>
             <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
             {arr}
-            <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
+            <span style={{color:'gray', fontSize: 'larger', marginLeft: '5px'}}>
+              view more: <a style={buttons} href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}>next ›</a>
+            </span>
+            <div style={{height:'50px'}}> </div>
           </div>
         )     
       }
@@ -135,8 +148,12 @@ class App extends Component {
             </div>
             <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
             {arr}
-            <a href={`${location.pathname}?count=${countOnBeforeClick}&before=${this.state.beforeID}`}> prev</a>
-            <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
+            <span style={{color:'gray', fontSize: 'larger', marginLeft: '5px'}}>
+              view more: <a style={buttons} href={`${location.pathname}?count=${countOnBeforeClick}&before=${this.state.beforeID}`}>‹ prev</a>
+              <span style={{paddingLeft: '.5em', marginLeft: '.5em', borderLeft: '1px solid #ccc'}}></span>
+              <a style={buttons} href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}>next ›</a>
+            </span>
+            <div style={{height:'50px'}}> </div>
           </div>
         )
     }

@@ -24,10 +24,12 @@ var Entry = (props) => {
   //some titles have only symbols and will end up as blank
   if(res==='') res = '_';
   var path = `/r/${data.subreddit}/comments/${data.id}/${res}/`
+  
+  //for the span style that is to make the spans 1.1 * numberOfDigits width
   if(data.thumbnail.slice(0,4) !== 'http') {
     return (
       <div className='Entry'> 
-        <span className='rank'> {props.count} </span>
+        <span style={{width:props.countSize*1.1+'ex'}} className='rank'> {props.count} </span>
         <div className='vote'> 
           <div className='arrow up'> </div>
           <div> {data.ups} </div>
@@ -56,7 +58,7 @@ var Entry = (props) => {
   //make img verticalAlign bottom so no extra space
   return (
     <div className='Entry'> 
-      <span className='rank'>{props.count}</span>
+      <span style = {{width: props.countSize*1.1+'ex'}} className='rank'>{props.count}</span>
       <div className='vote'> 
         <div className='arrow up'> </div>
         <div> {data.ups} </div>
