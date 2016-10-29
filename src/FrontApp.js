@@ -12,7 +12,6 @@ class FrontApp extends Component {
     this.state = {posts: null, newUser: userTemplate};
     this.onFormChange = this.onFormChange.bind(this);
     this.submitNewUser = this.submitNewUser.bind(this);
-
   }
 
   componentDidMount() {
@@ -64,7 +63,7 @@ class FrontApp extends Component {
 
   render(){ 
     // var subreddit = this.props.params.subreddit || '';
-    console.log(this.props.location)
+    console.log('rong', this.props.location)
     // var path = `/r/${this.props.params.subreddit}/`;
     var count = this.props.location.query.count || 0;
     //var before = this.props.location.query.before || null;
@@ -81,11 +80,21 @@ class FrontApp extends Component {
       countOnBeforeClick = Number(count)+1;
       countOnAfterClick = Number(count)+25;
     }
-    
+    var startCount;
+    //determine the post numberings
+    if(this.props.location.query.before) {
+      startCount = Number(count)-25;
+    }
+    else {
+      startCount = Number(count)+1;
+    }
+    //prev/next button styling
+    var buttons = {background:'#eee', border: '1px solid #ddd', borderRadius: '3px', padding:'1px 4px', fontWeight:'bold'};
+    //the countSize is the number of digits that the 25th count has. it's to adjust the size of the span for the entry
     if(this.state.posts) {
       var arr = this.state.posts.map((curr, i)=>{
         return (
-          <Entry key = {curr.data.id} data = {curr.data}> </Entry>
+          <Entry key = {curr.data.id} count={startCount+i} countSize={(startCount+24).toString().length} data = {curr.data}> </Entry>
         );
       })
       if(this.state.beforeID===null) {
@@ -95,40 +104,55 @@ class FrontApp extends Component {
               <a href="/" id="header-img"></a>
               &nbsp;
               <ul className='tabmenu'> 
-                <li className = 'selected'><Link to={{pathname:`/`}}>hot</Link></li>
-                <li><Link to={{pathname:`/new`}}>new</Link></li>
-                <li><Link to={{pathname:`/rising`}}>rising</Link></li>
-                <li><Link to={{pathname:`/controversial`}}>controversial</Link></li>
-                <li><Link to={{pathname:`/top`}}>top</Link></li>
-                <li><Link to={{pathname:`/gilded`}}>gilded</Link></li>
-                <li><Link to={{pathname:`/wiki`}}>wiki</Link></li>
-                <li><Link to={{pathname:`/promoted`}}>promoted</Link></li>
-
-
+                <li><Link to={{pathname:`/`}} activeClassName='activeHot'>hot</Link></li>
+                <li><Link to={{pathname:`/new`}} activeClassName='active'>new</Link></li>
+                <li><Link to={{pathname:`/rising`}} activeClassName='active'>rising</Link></li>
+                <li><Link to={{pathname:`/controversial`}} activeClassName='active'>controversial</Link></li>
+                <li><Link to={{pathname:`/top`}} activeClassName='active'>top</Link></li>
+                <li><Link to={{pathname:`/gilded`}} activeClassName='active'>gilded</Link></li>
+                <li><Link to={{pathname:`/wiki`}} activeClassName='active'>wiki</Link></li>
+                <li><Link to={{pathname:`/promoted`}} activeClassName='active'>promoted</Link></li>
               </ul>
             </div>
             <div>
-              
             </div>
             <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
             {arr}
-            <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
-
+            <span style={{color:'gray', fontSize: 'larger', marginLeft: '5px'}}>
+              view more: <a style={buttons} href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}>next ›</a>
+            </span>
+            <div style={{height:'50px'}}> </div>
           </div>
         )    
       }
       return (
-          <div> 
-           
-            <Link to={{pathname:`/new`}}> new </Link>
-            <Link to={{pathname:`/rising`}}> rising </Link>
-            <Link to={{pathname:`/controversial`}}> controversial </Link>
-            <Link to={{pathname:`/top`}}> top </Link>
-            {arr}
-            <a href={`${location.pathname}?count=${countOnBeforeClick}&before=${this.state.beforeID}`}> prev</a>
-            <a href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}> next</a>
+        <div> 
+          <div className='blueheader'> 
+            <a href="/" id="header-img"></a>
+            &nbsp;
+            <ul className='tabmenu'> 
+              <li className = 'selected'><Link to={{pathname:`/`}}>hot</Link></li>
+              <li><Link to={{pathname:`/new`}}>new</Link></li>
+              <li><Link to={{pathname:`/rising`}}>rising</Link></li>
+              <li><Link to={{pathname:`/controversial`}}>controversial</Link></li>
+              <li><Link to={{pathname:`/top`}}>top</Link></li>
+              <li><Link to={{pathname:`/gilded`}}>gilded</Link></li>
+              <li><Link to={{pathname:`/wiki`}}>wiki</Link></li>
+              <li><Link to={{pathname:`/promoted`}}>promoted</Link></li>
+            </ul>
           </div>
-        )
+          <div>
+          </div>
+          <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
+          {arr}
+          <span style={{color:'gray', fontSize: 'larger', marginLeft: '5px'}}>
+            view more: <a style={buttons} href={`${location.pathname}?count=${countOnBeforeClick}&before=${this.state.beforeID}`}>‹ prev</a>
+            <span style={{paddingLeft: '.5em', marginLeft: '.5em', borderLeft: '1px solid #ccc'}}></span>
+            <a style={buttons} href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}>next ›</a>
+          </span>
+          <div style={{height:'50px'}}> </div>
+        </div>
+      )  
     }
     return (
       <div>waiting</div>

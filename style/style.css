@@ -112,10 +112,35 @@ blockquote {
   margin-left: 5px;
 }
 
-.Ups {
-  width: 40px;
+.self {
+  background-image: url(https://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: 0px -448px;
+  background-repeat: no-repeat;
+  background-size: 70px 837px;
   flex-shrink: 0;
 }
+.default {
+  background-image: url(https://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: 0px -229px;
+  background-repeat: no-repeat;
+  background-size: 70px 837px;
+  flex-shrink: 0;
+}
+.image {
+  background-image: url(https://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: 0px -156px;
+  background-repeat: no-repeat;
+  background-size: 70px 837px;
+  flex-shrink: 0;
+}
+.nsfw {
+  background-image: url(https://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: 0px -302px;
+  background-repeat: no-repeat;
+  background-size: 70px 837px;
+  flex-shrink: 0;
+}
+
 
 .Title {
   font-size: medium;
@@ -136,6 +161,7 @@ blockquote {
   font-family: arial;
   font-size: medium;
   text-align: right;
+  flex-shrink: 0;
 }
 
 .vote {
@@ -145,7 +171,10 @@ blockquote {
   margin-right: 7px;
   width: 5.1ex;
   color: #c6c6c6;
+  text-align: center;
+  flex-shrink: 0;
 }
+
 
 .arrow {
   background-position: center center;
@@ -159,13 +188,13 @@ blockquote {
  }
 
 .arrow.up { 
-  background-image: url(http://www.redditstatic.com/sprite-reddit.png);
-  background-position: -42px -1443px;
+  background-image: url(http://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: -84px -1618px;
  }
 
  .arrow.down {
-  background-image: url(http://www.redditstatic.com/sprite-reddit.png);
-  background-position: 0px -1443px;
+  background-image: url(http://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: -42px -1618px;
  }
 
 .topheader {
@@ -244,19 +273,22 @@ blockquote {
     vertical-align: bottom;
 }
 
+.newsTest {
+  color: green;
+  background-color: purple;
+}
+
 .tabmenu li {
     display: inline;
     font-weight: bold;
     margin: 0px 3px;
 }
-
-.tabmenu li.selected a {
+.tabmenu li a.active {
   padding: 2px 6px 0 6px;
   color: orangered;
   background-color: white;
   border: 1px solid #5f99cf;
   border-bottom: 1px solid white;
-  /*z-index: 100;*/
 }
 
 .tabmenu li a {
