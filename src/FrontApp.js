@@ -12,7 +12,6 @@ class FrontApp extends Component {
     this.state = {posts: null, newUser: userTemplate};
     this.onFormChange = this.onFormChange.bind(this);
     this.submitNewUser = this.submitNewUser.bind(this);
-
   }
 
   componentDidMount() {
@@ -64,7 +63,7 @@ class FrontApp extends Component {
 
   render(){ 
     // var subreddit = this.props.params.subreddit || '';
-    console.log(this.props.location)
+    console.log('rong', this.props.location)
     // var path = `/r/${this.props.params.subreddit}/`;
     var count = this.props.location.query.count || 0;
     //var before = this.props.location.query.before || null;
@@ -105,14 +104,14 @@ class FrontApp extends Component {
               <a href="/" id="header-img"></a>
               &nbsp;
               <ul className='tabmenu'> 
-                <li className = 'selected'><Link to={{pathname:`/`}}>hot</Link></li>
-                <li><Link to={{pathname:`/new`}}>new</Link></li>
-                <li><Link to={{pathname:`/rising`}}>rising</Link></li>
-                <li><Link to={{pathname:`/controversial`}}>controversial</Link></li>
-                <li><Link to={{pathname:`/top`}}>top</Link></li>
-                <li><Link to={{pathname:`/gilded`}}>gilded</Link></li>
-                <li><Link to={{pathname:`/wiki`}}>wiki</Link></li>
-                <li><Link to={{pathname:`/promoted`}}>promoted</Link></li>
+                <li><Link to={{pathname:`/`}} activeClassName='activeHot'>hot</Link></li>
+                <li><Link to={{pathname:`/new`}} activeClassName='active'>new</Link></li>
+                <li><Link to={{pathname:`/rising`}} activeClassName='active'>rising</Link></li>
+                <li><Link to={{pathname:`/controversial`}} activeClassName='active'>controversial</Link></li>
+                <li><Link to={{pathname:`/top`}} activeClassName='active'>top</Link></li>
+                <li><Link to={{pathname:`/gilded`}} activeClassName='active'>gilded</Link></li>
+                <li><Link to={{pathname:`/wiki`}} activeClassName='active'>wiki</Link></li>
+                <li><Link to={{pathname:`/promoted`}} activeClassName='active'>promoted</Link></li>
               </ul>
             </div>
             <div>

@@ -26,7 +26,9 @@ var Entry = (props) => {
   var path = `/r/${data.subreddit}/comments/${data.id}/${res}/`
   
   //for the span style that is to make the spans 1.1 * numberOfDigits width
-  if(data.thumbnail.slice(0,4) !== 'http') {
+  var tn = data.thumbnail;
+  if(tn.slice(0,4) !== 'http') {
+    if(tn === '') tn = 'default'
     return (
       <div className='Entry'> 
         <span style={{width:props.countSize*1.1+'ex'}} className='rank'> {props.count} </span>
@@ -35,7 +37,7 @@ var Entry = (props) => {
           <div> {data.ups} </div>
           <div className='arrow down'></div>
         </div>
-        <a className={data.thumbnail} style={{width: '70px', height: '50px', marginRight: '5px', marginBottom: '2px'}} href={decodedUrl}></a>
+        <a className={tn} style={{width: '70px', height: '50px', marginRight: '5px', marginBottom: '2px'}} href={decodedUrl}></a>
         <div > 
           <div className = 'Title'>
             <a href={decodedUrl}> {data.title} </a>

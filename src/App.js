@@ -14,7 +14,6 @@ class App extends Component {
     this.state = {posts: null, newUser: userTemplate};
     this.onFormChange = this.onFormChange.bind(this);
     this.submitNewUser = this.submitNewUser.bind(this);
-
   }
 
   componentDidMount() {
@@ -107,7 +106,7 @@ class App extends Component {
               <a href="/" id="header-img"></a>
               &nbsp;
               <ul className='tabmenu'> 
-                <li className = 'selected'><Link to={{pathname:`/`}}>hot</Link></li>
+                <li className = 'selected'><Link to={{pathname:`/r/${this.props.params.subreddit}`}}>hot</Link></li>
                 <li><Link to={{pathname:`/r/${this.props.params.subreddit}/new`}}>new</Link></li>
                 <li><Link to={{pathname:`/r/${this.props.params.subreddit}/rising`}}>rising</Link></li>
                 <li><Link to={{pathname:`/r/${this.props.params.subreddit}/controversial`}}>controversial</Link></li>

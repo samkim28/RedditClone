@@ -11,6 +11,9 @@ var AppHeader = (props)=>{
     marginLeft: '0.7ex',
     display: 'inline'
   }
+              // <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/Funny'}}>Funny</Link></li>
+              // <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/Pics'}}>Pics</Link></li>
+              // <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/Videos'}}>Videos</Link></li>
   return(
     <div >
       <div className = 'OrderLinks'>
@@ -24,24 +27,23 @@ var AppHeader = (props)=>{
             </ul>
             <span style={separatorStyle}>&nbsp;|&nbsp;</span>
             <ul className='leftlinks'>
-              <li style={{display: 'inline'}}><Link to={{pathname:'/AskReddit'}}>Askreddit</Link></li>
-              <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/Funny'}}>Funny</Link></li>
-              <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/Pics'}}>Pics</Link></li>
-              <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/Videos'}}>Videos</Link></li>
+              <li style={{display: 'inline'}}><Link to={{pathname:'/r/AskReddit'}}>Askreddit</Link></li>
               <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/Movies'}}>Movies</Link></li>
               <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/Gaming'}}>Gaming</Link></li>
               <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/worldnews'}}>worldnews</Link></li>
               <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/gifs'}}>gifs</Link></li>
               <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/todayilearned'}}>todayilearned</Link></li>
               <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/aww'}}>aww</Link></li>
-              <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/news'}}>news</Link></li>
+              <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link activeClassName='newsTest' to={{pathname:'/r/news'}}>news</Link></li>
               <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/showerthoughts'}}>showerthoughts</Link></li>
               <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/mildlyinteresting'}}>mildlyinteresting</Link></li>
               <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/jokes'}}>jokes</Link></li>
               <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/tifu'}}>tifu</Link></li>
               <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/nottheonion'}}>nottheonion</Link></li>
               <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/baseball'}}>baseball</Link></li>
-              <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link to={{pathname:'/r/television'}}>television</Link></li>
+              <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link activeClassName='newsTest' to={{pathname:'/'}}>television</Link></li>
+              <li style={{display: 'inline'}}><span style={separatorStyle}>-</span><Link activeClassName='newsTest' to={{pathname:'/r/news_etc'}}>news_etc</Link></li>
+
             </ul>
           </div>
         </div>

@@ -188,13 +188,13 @@ blockquote {
  }
 
 .arrow.up { 
-  background-image: url(http://www.redditstatic.com/sprite-reddit.png);
-  background-position: -42px -1443px;
+  background-image: url(http://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: -84px -1618px;
  }
 
  .arrow.down {
-  background-image: url(http://www.redditstatic.com/sprite-reddit.png);
-  background-position: 0px -1443px;
+  background-image: url(http://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: -42px -1618px;
  }
 
 .topheader {
@@ -273,19 +273,22 @@ blockquote {
     vertical-align: bottom;
 }
 
+.newsTest {
+  color: green;
+  background-color: purple;
+}
+
 .tabmenu li {
     display: inline;
     font-weight: bold;
     margin: 0px 3px;
 }
-
-.tabmenu li.selected a {
+.tabmenu li a.active {
   padding: 2px 6px 0 6px;
   color: orangered;
   background-color: white;
   border: 1px solid #5f99cf;
   border-bottom: 1px solid white;
-  /*z-index: 100;*/
 }
 
 .tabmenu li a {
