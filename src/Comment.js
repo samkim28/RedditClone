@@ -31,11 +31,11 @@ class Comment extends Component{
     var elem = document.createElement('textarea');
     elem.innerHTML = this.props.data.body;
     var body = elem.value;
+    console.log(this.props.data.body, body);
 
     //props.data contains info for the current comment
     if(this.props.data.replies) {
       var numChildren = this.getNumChildren(this.props.data.replies.data.children);
-      
       var filteredChildren = this.props.data.replies.data.children.filter((curr)=>curr.kind!=='more')
       var replies = filteredChildren.map((reply)=>{
         return (

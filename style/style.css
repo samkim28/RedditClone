@@ -235,10 +235,15 @@ blockquote {
   color: black;
 }
 
-#front {
+/*.leftlinks li a.activeSub {
   color: orangered;
   font-weight: bold
-}
+}*/
+
+/*#front {
+  color: orangered;
+  font-weight: bold
+}*/
 
 .leftlinks a:hover {
   text-decoration: underline;
@@ -273,17 +278,13 @@ blockquote {
     vertical-align: bottom;
 }
 
-.newsTest {
-  color: green;
-  background-color: purple;
-}
 
 .tabmenu li {
     display: inline;
     font-weight: bold;
     margin: 0px 3px;
 }
-.tabmenu li a.active {
+.tabmenu li a.activeOrder {
   padding: 2px 6px 0 6px;
   color: orangered;
   background-color: white;
@@ -295,3 +296,14 @@ blockquote {
   padding: 2px 6px 0 6px;
   background-color: #eff7ff;
 }
+
+.pagename {
+  font-weight: bold;
+  margin-right: 1ex;
+  font-variant: small-caps;
+  font-size: 1.2em;
+  vertical-align: bottom;
+  color: black;
+}
+
+

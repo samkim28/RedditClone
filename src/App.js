@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import Entry from './Entry';
-import {Link} from 'react-router';
+import {Link, IndexLink} from 'react-router';
 import UserForm from './UserForm';
 
 var userTemplate = {name: "", email: "", description: "", errors: {}};
@@ -18,7 +18,7 @@ class App extends Component {
 
   componentDidMount() {
     var {location} = this.props;
-    var myRequest = new Request (`https://www.reddit.com${location.pathname}/.json${location.search}`);
+    var myRequest = new Request (`https://www.reddit.com${location.pathname}.json${location.search}`);
     fetch(myRequest).then(function(response) {
       console.log('response from api call', response);
       return response.json();
@@ -32,7 +32,7 @@ class App extends Component {
     //if(this.props.params.subreddit !== prevProps.params.subreddit || this.props.params.order !== prevProps.params.order) {
     if(this.props.location.pathname !== prevProps.location.pathname || this.props.location.search !== prevProps.location.search) {
       var {location} = this.props;
-      var myRequest = new Request (`https://www.reddit.com${location.pathname}/.json${location.search}`);
+      var myRequest = new Request (`https://www.reddit.com${location.pathname}.json${location.search}`);
       fetch(myRequest).then(function(response) {
         console.log('response from api call', response);
         return response.json();
@@ -106,14 +106,14 @@ class App extends Component {
               <a href="/" id="header-img"></a>
               &nbsp;
               <ul className='tabmenu'> 
-                <li className = 'selected'><Link to={{pathname:`/r/${this.props.params.subreddit}`}}>hot</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/new`}}>new</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/rising`}}>rising</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/controversial`}}>controversial</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/top`}}>top</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/gilded`}}>gilded</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/wiki`}}>wiki</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/promoted`}}>promoted</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/`}} activeClassName='activeOrder'>hot</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/new/`}} activeClassName='activeOrder'>new</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/rising/`}} activeClassName='activeOrder'>rising</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/controversial/`}} activeClassName='activeOrder'>controversial</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/top/`}} activeClassName='activeOrder'>top</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/gilded/`}} activeClassName='activeOrder'>gilded</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/wiki/`}} activeClassName='activeOrder'>wiki</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/promoted/`}} activeClassName='activeOrder'>promoted</Link></li>
               </ul>
             </div>
             <div>
@@ -133,14 +133,14 @@ class App extends Component {
               <a href="/" id="header-img"></a>
               &nbsp;
               <ul className='tabmenu'> 
-                <li className = 'selected'><Link to={{pathname:`/`}}>hot</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/new`}}>new</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/rising`}}>rising</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/controversial`}}>controversial</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/top`}}>top</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/gilded`}}>gilded</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/wiki`}}>wiki</Link></li>
-                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/promoted`}}>promoted</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/`}} activeClassName='activeOrder'>hot</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/new/`}} activeClassName='activeOrder'>new</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/rising/`}} activeClassName='activeOrder'>rising</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/controversial/`}} activeClassName='activeOrder'>controversial</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/top/`}} activeClassName='activeOrder'>top</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/gilded/`}} activeClassName='activeOrder'>gilded</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/wiki/`}} activeClassName='activeOrder'>wiki</Link></li>
+                <li><Link to={{pathname:`/r/${this.props.params.subreddit}/promoted/`}} activeClassName='activeOrder'>promoted</Link></li>
               </ul>
             </div>
             <div>

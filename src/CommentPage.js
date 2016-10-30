@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Comment from './Comment';
+import {Link} from 'react-router';
 
 class CommentPage extends Component {
   constructor(props) {
@@ -22,7 +23,6 @@ class CommentPage extends Component {
   }
 
   render() {
-  
     if(this.state.comments) {
       var {header}=this.state;
       var filteredComments = this.state.comments.filter((curr)=>curr.kind!=='more');
@@ -34,6 +34,15 @@ class CommentPage extends Component {
       //i don't think i need to check header in state
       return (
         <div>
+          <div className='blueheader'> 
+            <a href="/" id="header-img"></a>
+            &nbsp;
+            <Link className='pagename' to={{pathname:`/`}}>{this.props.params.subreddit}</Link>
+            <ul className='tabmenu'> 
+              <li><Link activeClassName='activeOrder' to={{pathname:`/r/${this.props.params.subreddit}/comments`}}>comments</Link></li>
+              <li><Link to={{pathname:`/rising/`}}>other discussions</Link></li>
+            </ul>
+          </div>
           <div> {header.title} {header.author} {header.upvote_ratio} </div>
           <textarea rows="1" cols="1" className = 'commentBox' ></textarea>
           <div> {replies} </div>

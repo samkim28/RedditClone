@@ -43,7 +43,7 @@ var Entry = (props) => {
             <a href={decodedUrl}> {data.title} </a>
           </div>
           <div style = {{color:'#888' }}>
-            submitted {Math.floor((Date.now()-data.created_utc*1000)/3600000)} hours ago by {data.author} to /r/{data.subreddit}
+            submitted {Math.floor((Date.now()-data.created_utc*1000)/3600000)} hours ago by {data.author} to <Link to={{pathname:`/r/${data.subreddit}/`}}>/r/{data.subreddit}</Link>
           </div>
           <div style= {{paddingTop:'1', paddingBottom:'1'}} >
             <Link style = {{ color:'#888', fontWeight:'bold'}} to={{ pathname: path}}> {data.num_comments} comments </Link>
@@ -74,7 +74,7 @@ var Entry = (props) => {
           <a href={decodedUrl}> {data.title} </a>
         </div>
         <div style = {{color:'#888' }}>
-          submitted {Math.floor((Date.now()-data.created_utc*1000)/3600000)} hours ago by {data.author} to /r/{data.subreddit}
+          submitted {Math.floor((Date.now()-data.created_utc*1000)/3600000)} hours ago by {data.author} to <Link to={{pathname:`/r/${data.subreddit}/`}}>/r/{data.subreddit}</Link>
         </div>
         <div style= {{paddingTop:'1', paddingBottom:'1'}} >
           <Link style = {{ color:'#888', fontWeight:'bold'}} to={{ pathname: path}}> {data.num_comments} comments </Link>
