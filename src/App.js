@@ -1,4 +1,5 @@
 //only difference between this and frontapp is the /r/subreddit link for the ordering
+//also frontapp will have the subreddit name in the blueheader
 
 import React, {Component} from 'react';
 import Entry from './Entry';
@@ -105,6 +106,7 @@ class App extends Component {
             <div className='blueheader'> 
               <a href="/" id="header-img"></a>
               &nbsp;
+              <span className='pagename'>{this.props.params.subreddit}</span>
               <ul className='tabmenu'> 
                 <li><Link to={{pathname:`/r/${this.props.params.subreddit}/`}} activeClassName='activeOrder'>hot</Link></li>
                 <li><Link to={{pathname:`/r/${this.props.params.subreddit}/new/`}} activeClassName='activeOrder'>new</Link></li>
@@ -132,6 +134,7 @@ class App extends Component {
             <div className='blueheader'> 
               <a href="/" id="header-img"></a>
               &nbsp;
+              <span className='pagename'>{this.props.params.subreddit}</span>
               <ul className='tabmenu'> 
                 <li><Link to={{pathname:`/r/${this.props.params.subreddit}/`}} activeClassName='activeOrder'>hot</Link></li>
                 <li><Link to={{pathname:`/r/${this.props.params.subreddit}/new/`}} activeClassName='activeOrder'>new</Link></li>

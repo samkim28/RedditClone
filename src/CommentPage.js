@@ -24,28 +24,59 @@ class CommentPage extends Component {
 
   render() {
     if(this.state.comments) {
+
       var {header}=this.state;
+
+      //decoding the url entities in case there are any
+      var elem = document.createElement('textarea');
+      elem.innerHTML = header.url;
+      var decodedUrl = elem.value;
+
+
       var filteredComments = this.state.comments.filter((curr)=>curr.kind!=='more');
       var replies = filteredComments.map((reply)=>{
         return(
           <Comment key={reply.data.id} data={reply.data}></Comment>
         );
       })
+
+      //if there is no picture then don't display the anchor/image
+      var commentPic = { float: 'left', width: '70px', marginRight: '5px', marginBottom: '2px'}
+      if(header.thumbnail==='') { commentPic.display = 'none';}
+
+
       //i don't think i need to check header in state
       return (
         <div>
           <div className='blueheader'> 
             <a href="/" id="header-img"></a>
             &nbsp;
-            <Link className='pagename' to={{pathname:`/`}}>{this.props.params.subreddit}</Link>
+            <Link className='pagename' to={{pathname:`/r/${this.props.params.subreddit}/`}}>{this.props.params.subreddit}</Link>
             <ul className='tabmenu'> 
-              <li><Link activeClassName='activeOrder' to={{pathname:`/r/${this.props.params.subreddit}/comments`}}>comments</Link></li>
-              <li><Link to={{pathname:`/rising/`}}>other discussions</Link></li>
+              <li><Link activeClassName='activeOrder' to={{pathname:this.props.location.pathname}}>comments</Link></li>
             </ul>
           </div>
-          <div> {header.title} {header.author} {header.upvote_ratio} </div>
-          <textarea rows="1" cols="1" className = 'commentBox' ></textarea>
-          <div> {replies} </div>
+          
+          <div className='vote' style={{float: 'left'}}> 
+            <div className='arrow up'> </div>
+            <div> {header.ups} </div>
+            <div className='arrow down'></div>
+          </div>
+          <a style={commentPic} href={decodedUrl}><img style={{width:'70px', verticalAlign: 'bottom'}} src={header.thumbnail} /></a>
+          <div style={{overflow: 'hidden'}}> 
+            <div className = 'Title'>
+              <a href={decodedUrl}> {header.title} </a>
+            </div>
+            <div style = {{color:'#888' }}>
+              submitted {Math.floor((Date.now()-header.created_utc*1000)/3600000)} hours ago by {header.author}
+            </div>
+            <div style= {{paddingTop:'1', paddingBottom:'1'}} >
+              <Link style = {{ color:'#888', fontWeight:'bold'}} to={{ pathname: 'hi'}}> {header.num_comments} comments </Link>
+            </div>
+          </div>
+          <div style={{clear: 'left'}}> </div>
+          <textarea rows="1" cols="1" className='commentBox' ></textarea>
+          <div>{replies}</div>
         </div>
       )
     }

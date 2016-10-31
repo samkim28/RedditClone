@@ -17,6 +17,7 @@ class FrontApp extends Component {
   componentDidMount() {
     var {location} = this.props;
     var myRequest = new Request (`https://www.reddit.com${location.pathname}.json${location.search}`);
+
     fetch(myRequest).then(function(response) {
       console.log('response from api call', response);
       return response.json();
@@ -129,14 +130,14 @@ class FrontApp extends Component {
             <a href="/" id="header-img"></a>
             &nbsp;
             <ul className='tabmenu'> 
-              <li><Link to={{pathname:`/`}}>hot</Link></li>
-              <li><Link to={{pathname:`/new/`}}>new</Link></li>
-              <li><Link to={{pathname:`/rising/`}}>rising</Link></li>
-              <li><Link to={{pathname:`/controversial/`}}>controversial</Link></li>
-              <li><Link to={{pathname:`/top/`}}>top</Link></li>
-              <li><Link to={{pathname:`/gilded/`}}>gilded</Link></li>
-              <li><Link to={{pathname:`/wiki/`}}>wiki</Link></li>
-              <li><Link to={{pathname:`/promoted/`}}>promoted</Link></li>
+              <li><IndexLink to={{pathname:`/`}} activeClassName='activeOrder'>hot</IndexLink></li>
+              <li><Link to={{pathname:`/new/`}} activeClassName='activeOrder'>new</Link></li>
+              <li><Link to={{pathname:`/rising/`}} activeClassName='activeOrder'>rising</Link></li>
+              <li><Link to={{pathname:`/controversial/`}} activeClassName='activeOrder'>controversial</Link></li>
+              <li><Link to={{pathname:`/top/`}} activeClassName='activeOrder'>top</Link></li>
+              <li><Link to={{pathname:`/gilded/`}} activeClassName='activeOrder'>gilded</Link></li>
+              <li><Link to={{pathname:`/wiki/`}} activeClassName='activeOrder'>wiki</Link></li>
+              <li><Link to={{pathname:`/promoted/`}} activeClassName='activeOrder'>promoted</Link></li>
             </ul>
           </div>
           <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
