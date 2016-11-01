@@ -6,7 +6,7 @@ body {
   font-size: x-small;
   font-family: verdana, sans-serif;
 }
-ul {
+ul, p{
   margin: 0;
   padding: 0;
 }
@@ -29,23 +29,77 @@ blockquote {
 
 .visibleCommentHeader {
   /*margin: 0px 0px 0px 20px;*/
-  color: black;
+  color: #888;
 }
+
+.visibleCommentHeader .author {
+  color: #369;
+  font-weight: bold;
+}
+
+.visibleCommentHeader .children {
+}
+
+.visibleCommentHeader .minus {
+  padding: 1px;
+  margin-right: 3px;
+  color: #369;
+}
+
+.visibleCommentHeader .plus {
+  display: none;
+}
+
 
 .hiddenCommentHeader{
   /*margin: 0px 0px 0px 20px;*/
-  color: green;
+  /*color: green;*/
+  color: #888;
 }
+.hiddenCommentHeader .author {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.hiddenCommentHeader .children {
+  font-style: italic;
+}
+
+.hiddenCommentHeader .minus {
+  display: none;
+}
+
+.hiddenCommentHeader .plus {
+  padding: 1px;
+  margin-right: 3px;
+}
+
+
+
+
+
 
 .visibleCommentBody{
   margin: 0px 0px 0px 20px;
   display: block;
+  overflow: hidden;
+  font-size: small;
 }
 
 .hiddenCommentBody {
   margin: 0px 0px 0px 20px;
   display: none;
-};
+}
+
+.visibleCommentReplies {
+  margin: 0px 0px 0px 20px;
+  display: block;
+}
+
+.hiddenCommentReplies{
+  margin: 0px 0px 0px 20px;
+  display: none;
+}
 
 .UserView-title {
   font-size: 24px;
@@ -201,6 +255,31 @@ blockquote {
  }
 
  .arrow.down {
+  background-image: url(http://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: -42px -1618px;
+ }
+
+ .commentvote {
+  font-weight: bold;
+  font-size: small;
+  margin-right: 7px;
+  color: #c6c6c6;
+}
+
+.commentarrow {
+  background-repeat: no-repeat; 
+  cursor: pointer;
+  height: 14px;
+  width: 15px;
+  margin-top: 2px;
+ }
+
+.commentarrow.up { 
+  background-image: url(http://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: -84px -1618px;
+ }
+
+ .commentarrow.down {
   background-image: url(http://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
   background-position: -42px -1618px;
  }

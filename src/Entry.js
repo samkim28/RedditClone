@@ -46,7 +46,7 @@ var Entry = (props) => {
             submitted {Math.floor((Date.now()-data.created_utc*1000)/3600000)} hours ago by {data.author} to <Link to={{pathname:`/r/${data.subreddit}/`}}>/r/{data.subreddit}</Link>
           </div>
           <div style= {{paddingTop:'1', paddingBottom:'1'}} >
-            <Link style = {{ color:'#888', fontWeight:'bold'}} to={{ pathname: path}}> {data.num_comments} comments </Link>
+            <Link style = {{ lineHeight: '1.6em', color:'#888', fontWeight:'bold'}} to={{ pathname: path}}> {data.num_comments} comments </Link>
           </div>
         </div>   
       </div>
@@ -77,7 +77,7 @@ var Entry = (props) => {
           submitted {Math.floor((Date.now()-data.created_utc*1000)/3600000)} hours ago by {data.author} to <Link to={{pathname:`/r/${data.subreddit}/`}}>/r/{data.subreddit}</Link>
         </div>
         <div style= {{paddingTop:'1', paddingBottom:'1'}} >
-          <Link style = {{ color:'#888', fontWeight:'bold'}} to={{ pathname: path}}> {data.num_comments} comments </Link>
+          <Link style = {{ lineHeight: '1.6em', color:'#888', fontWeight:'bold'}} to={{ pathname: path}}> {data.num_comments} comments </Link>
         </div>
       </div>   
     </div>

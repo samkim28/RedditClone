@@ -31,7 +31,6 @@ class Comment extends Component{
     var elem = document.createElement('textarea');
     elem.innerHTML = this.props.data.body;
     var body = elem.value;
-    console.log(this.props.data.body, body);
 
     //props.data contains info for the current comment
     if(this.props.data.replies) {
@@ -44,11 +43,19 @@ class Comment extends Component{
       }) 
       return(
         <div > 
-          <div className={this.state.hidden?'hiddenCommentHeader':'visibleCommentHeader'} onClick={(e)=>{this.onClick(); e.stopPropagation();}  } >{this.state.hidden?'[+]':'[--]'} {this.props.data.author} children:{numChildren}</div>
+          <div className='commentvote' style={{ float: 'left'}}>
+            <div className='commentarrow up'> </div>
+            <div className='commentarrow down'> </div>
+          </div>
+          <div className={this.state.hidden?'hiddenCommentHeader':'visibleCommentHeader'} onClick={(e)=>{this.onClick(); e.stopPropagation();}}> <span className='plus'>[+]</span><span className='minus'>[–]</span><span className='author'>{this.props.data.author}</span> <span className='children'>children:{numChildren}</span></div>
           <div className={this.state.hidden?'hiddenCommentBody':'visibleCommentBody'}>
-            <Markdown source ={body}/>
+            {/* in markdown i passed className props*/}
+            <Markdown style = {{marginTop:'5px', marginBottom:'5px', fontSize:'1.076923em', lineHeight:'1.4285em'}} source ={body}/>
+          </div>
+          <div className={this.state.hidden?'hiddenCommentReplies':'visibleCommentReplies'}>
             {replies}
           </div>
+          <div style={{clear: 'left'}}> </div>
         </div>
       )
     }

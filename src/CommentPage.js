@@ -56,27 +56,46 @@ class CommentPage extends Component {
               <li><Link activeClassName='activeOrder' to={{pathname:this.props.location.pathname}}>comments</Link></li>
             </ul>
           </div>
-          
-          <div className='vote' style={{float: 'left'}}> 
-            <div className='arrow up'> </div>
-            <div> {header.ups} </div>
-            <div className='arrow down'></div>
+
+          <div style={{margin: '7px 5px 0px 5px'}}> 
+
+            <div style={{marginBottom: '8px', paddingLeft: '3px'}}>
+              <div className='vote' style={{float: 'left'}}> 
+                <div className='arrow up'> </div>
+                <div> {header.ups} </div>
+                <div className='arrow down'></div>
+              </div>
+              <a style={commentPic} href={decodedUrl}><img style={{width:'70px', verticalAlign: 'bottom'}} src={header.thumbnail} /></a>
+              <div style={{overflow: 'hidden'}}> 
+                <div className = 'Title'>
+                  <a href={decodedUrl}> {header.title} </a>
+                </div>
+                <div style = {{color:'#888' }}>
+                  submitted {Math.floor((Date.now()-header.created_utc*1000)/3600000)} hours ago by {header.author}
+                </div>
+                <div style= {{paddingTop:'1', paddingBottom:'1'}} >
+                  <Link style = {{ lineHeight: '1.6em', color:'#888', fontWeight:'bold'}} to={{ pathname: 'hi'}}> {header.num_comments} comments </Link>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div style={{margin:'10px 310px 0px 10px', paddingBottom: '3px', borderBottom:'1px dotted gray', fontSize: '16px', fontWeight: 'normal'}}>top 200 comments</div>
+              <div style={{border:'none', margin:'0 310px 10px 10px', padding: '0', color: 'gray', fontSize: 'larger'}}>
+                <span >sorted by: </span>
+                <div style={{display:'inline'}}>dropdown</div>
+              </div>
+
+              {/* this will be an input for the textarea later*/}
+              <div style={{margin:'0 0 10px 10px'}}>
+                <textarea style={{clear: 'left', display: 'block', marginTop: '5px', marginBottom: '5px'}} rows="1" cols="1" className='commentBox' ></textarea>
+                <button style={{margin: '5px 5px 10px 0'}}>save</button> 
+              </div>
+
+              <div style={{marginLeft: '10px'}}>{replies}</div>
+
+            </div>
+
           </div>
-          <a style={commentPic} href={decodedUrl}><img style={{width:'70px', verticalAlign: 'bottom'}} src={header.thumbnail} /></a>
-          <div style={{overflow: 'hidden'}}> 
-            <div className = 'Title'>
-              <a href={decodedUrl}> {header.title} </a>
-            </div>
-            <div style = {{color:'#888' }}>
-              submitted {Math.floor((Date.now()-header.created_utc*1000)/3600000)} hours ago by {header.author}
-            </div>
-            <div style= {{paddingTop:'1', paddingBottom:'1'}} >
-              <Link style = {{ color:'#888', fontWeight:'bold'}} to={{ pathname: 'hi'}}> {header.num_comments} comments </Link>
-            </div>
-          </div>
-          <div style={{clear: 'left'}}> </div>
-          <textarea rows="1" cols="1" className='commentBox' ></textarea>
-          <div>{replies}</div>
         </div>
       )
     }
