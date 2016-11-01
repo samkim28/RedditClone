@@ -42,8 +42,8 @@ class Comment extends Component{
         )
       }) 
       return(
-        <div > 
-          <div className='commentvote' style={{ float: 'left'}}>
+        <div style={{marginLeft: '10px'}} > 
+          <div style={this.state.hidden?{display:'none'} : {}} className='commentvote'>
             <div className='commentarrow up'> </div>
             <div className='commentarrow down'> </div>
           </div>

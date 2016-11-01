@@ -91,7 +91,7 @@ class CommentPage extends Component {
                 <button style={{margin: '5px 5px 10px 0'}}>save</button> 
               </div>
 
-              <div style={{marginLeft: '10px'}}>{replies}</div>
+              <div>{replies}</div>
 
             </div>
 

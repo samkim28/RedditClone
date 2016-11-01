@@ -28,7 +28,7 @@ blockquote {
 }
 
 .visibleCommentHeader {
-  /*margin: 0px 0px 0px 20px;*/
+  margin: 0px 0px 0px 20px;
   color: #888;
 }
 
@@ -52,7 +52,7 @@ blockquote {
 
 
 .hiddenCommentHeader{
-  /*margin: 0px 0px 0px 20px;*/
+  margin: 0px 0px 0px 23px;
   /*color: green;*/
   color: #888;
 }
@@ -74,11 +74,6 @@ blockquote {
   margin-right: 3px;
 }
 
-
-
-
-
-
 .visibleCommentBody{
   margin: 0px 0px 0px 20px;
   display: block;
@@ -92,8 +87,11 @@ blockquote {
 }
 
 .visibleCommentReplies {
-  margin: 0px 0px 0px 20px;
+  /*margin: 0px 0px 0px 20px;*/
   display: block;
+  margin-top: 10px;
+  margin-left: 15px;
+  border-left: 1px dotted #DDF;
 }
 
 .hiddenCommentReplies{
@@ -264,6 +262,7 @@ blockquote {
   font-size: small;
   margin-right: 7px;
   color: #c6c6c6;
+  float: left;
 }
 
 .commentarrow {
