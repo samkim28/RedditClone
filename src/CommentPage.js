@@ -60,7 +60,7 @@ class CommentPage extends Component {
           <div style={{margin: '7px 5px 0px 5px'}}> 
 
             <div style={{marginBottom: '8px', paddingLeft: '3px'}}>
-              <div className='vote' style={{float: 'left'}}> 
+              <div className='vote' style={{float: 'left', width:'auto'}}> 
                 <div className='arrow up'> </div>
                 <div> {header.ups} </div>
                 <div className='arrow down'></div>
@@ -77,6 +77,7 @@ class CommentPage extends Component {
                   <Link style = {{ lineHeight: '1.6em', color:'#888', fontWeight:'bold'}} to={{ pathname: 'hi'}}> {header.num_comments} comments </Link>
                 </div>
               </div>
+              <div style={{clear:'left'}}> </div>
             </div>
             <div>
               <div style={{margin:'10px 310px 0px 10px', paddingBottom: '3px', borderBottom:'1px dotted gray', fontSize: '16px', fontWeight: 'normal'}}>top 200 comments</div>

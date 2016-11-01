@@ -91,10 +91,10 @@ class FrontApp extends Component {
     }
     //prev/next button styling
     var buttons = {background:'#eee', border: '1px solid #ddd', borderRadius: '3px', padding:'1px 4px', fontWeight:'bold'};
-    //the countSize is the number of digits that the 25th count has. it's to adjust the size of the span for the entry
     if(this.state.posts) {
       var arr = this.state.posts.map((curr, i)=>{
         return (
+          //the countSize is the number of digits that the 25th count has. it's to adjust the size of the span for the entry
           <Entry key = {curr.data.id} count={startCount+i} countSize={(startCount+24).toString().length} data = {curr.data}> </Entry>
         );
       })

@@ -52,9 +52,10 @@ blockquote {
 
 
 .hiddenCommentHeader{
-  margin: 0px 0px 0px 23px;
+  margin: 0px 0px 0px 22px;
   /*color: green;*/
   color: #888;
+  padding-bottom: 10px;
 }
 .hiddenCommentHeader .author {
   font-weight: bold;
@@ -224,6 +225,7 @@ blockquote {
   flex-shrink: 0;
 }
 
+/*width will not be static here*/
 .vote {
   font-weight: bold;
   font-size: small;
