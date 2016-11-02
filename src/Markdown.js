@@ -14,7 +14,7 @@ var Markdown = React.createClass({
  
   render() {
     return (
-      <div>
+      <div className={this.props.className} style={this.props.style}>
         {this.content()}
       </div>
     );

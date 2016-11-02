@@ -6,7 +6,7 @@ body {
   font-size: x-small;
   font-family: verdana, sans-serif;
 }
-ul {
+ul, p{
   margin: 0;
   padding: 0;
 }
@@ -28,24 +28,77 @@ blockquote {
 }
 
 .visibleCommentHeader {
-  /*margin: 0px 0px 0px 20px;*/
-  color: black;
+  margin: 0px 0px 0px 20px;
+  color: #888;
 }
 
+.visibleCommentHeader .author {
+  color: #369;
+  font-weight: bold;
+}
+
+.visibleCommentHeader .children {
+}
+
+.visibleCommentHeader .minus {
+  padding: 1px;
+  margin-right: 3px;
+  color: #369;
+}
+
+.visibleCommentHeader .plus {
+  display: none;
+}
+
+
 .hiddenCommentHeader{
-  /*margin: 0px 0px 0px 20px;*/
-  color: green;
+  margin: 0px 0px 0px 22px;
+  /*color: green;*/
+  color: #888;
+  padding-bottom: 10px;
+}
+.hiddenCommentHeader .author {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.hiddenCommentHeader .children {
+  font-style: italic;
+}
+
+.hiddenCommentHeader .minus {
+  display: none;
+}
+
+.hiddenCommentHeader .plus {
+  padding: 1px;
+  margin-right: 3px;
 }
 
 .visibleCommentBody{
   margin: 0px 0px 0px 20px;
   display: block;
+  overflow: hidden;
+  font-size: small;
 }
 
 .hiddenCommentBody {
   margin: 0px 0px 0px 20px;
   display: none;
-};
+}
+
+.visibleCommentReplies {
+  /*margin: 0px 0px 0px 20px;*/
+  display: block;
+  margin-top: 10px;
+  margin-left: 15px;
+  border-left: 1px dotted #DDF;
+}
+
+.hiddenCommentReplies{
+  margin: 0px 0px 0px 20px;
+  display: none;
+}
 
 .UserView-title {
   font-size: 24px;
@@ -141,6 +194,14 @@ blockquote {
   flex-shrink: 0;
 }
 
+.spoiler {
+  background-image: url(https://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: 0px -375px;
+  background-repeat: no-repeat;
+  background-size: 70px 837px;
+  flex-shrink: 0;
+}
+
 
 .Title {
   font-size: medium;
@@ -164,6 +225,7 @@ blockquote {
   flex-shrink: 0;
 }
 
+/*width will not be static here*/
 .vote {
   font-weight: bold;
   font-size: small;
@@ -193,6 +255,32 @@ blockquote {
  }
 
  .arrow.down {
+  background-image: url(http://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: -42px -1618px;
+ }
+
+ .commentvote {
+  font-weight: bold;
+  font-size: small;
+  margin-right: 7px;
+  color: #c6c6c6;
+  float: left;
+}
+
+.commentarrow {
+  background-repeat: no-repeat; 
+  cursor: pointer;
+  height: 14px;
+  width: 15px;
+  margin-top: 2px;
+ }
+
+.commentarrow.up { 
+  background-image: url(http://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
+  background-position: -84px -1618px;
+ }
+
+ .commentarrow.down {
   background-image: url(http://www.redditstatic.com/sprite-reddit.6Om8v6KMv28.png);
   background-position: -42px -1618px;
  }
@@ -235,10 +323,15 @@ blockquote {
   color: black;
 }
 
-#front {
+/*.leftlinks li a.activeSub {
   color: orangered;
   font-weight: bold
-}
+}*/
+
+/*#front {
+  color: orangered;
+  font-weight: bold
+}*/
 
 .leftlinks a:hover {
   text-decoration: underline;
@@ -254,36 +347,31 @@ blockquote {
 }
 
 #header-img {
-    background-image: url(http://www.redditstatic.com/sprite-reddit.AYIPPrZ9tAU.png);
-    background-position: 0px -1121px;
-    background-repeat: no-repeat;
-    height: 40px;
-    width: 120px;
-    display: inline-block;
-    vertical-align: bottom;
-    margin-bottom: 3px;
-    margin-top: 2px;
-    margin-right: 5px;
+  background-image: url(http://www.redditstatic.com/sprite-reddit.AYIPPrZ9tAU.png);
+  background-position: 0px -1121px;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 120px;
+  display: inline-block;
+  vertical-align: bottom;
+  margin-bottom: 3px;
+  margin-top: 2px;
+  margin-right: 5px;
 }
 .tabmenu {
-    list-style-type: none;
-    white-space: nowrap;
-    display: inline-block;
-    margin-top: 5px;
-    vertical-align: bottom;
-}
-
-.newsTest {
-  color: green;
-  background-color: purple;
+  list-style-type: none;
+  white-space: nowrap;
+  display: inline-block;
+  margin-top: 5px;
+  vertical-align: bottom;
 }
 
 .tabmenu li {
-    display: inline;
-    font-weight: bold;
-    margin: 0px 3px;
+  display: inline;
+  font-weight: bold;
+  margin: 0px 3px;
 }
-.tabmenu li a.active {
+.tabmenu li a.activeOrder {
   padding: 2px 6px 0 6px;
   color: orangered;
   background-color: white;
@@ -295,3 +383,14 @@ blockquote {
   padding: 2px 6px 0 6px;
   background-color: #eff7ff;
 }
+
+.pagename {
+  font-weight: bold;
+  margin-right: 1ex;
+  font-variant: small-caps;
+  font-size: 1.2em;
+  vertical-align: bottom;
+  color: black;
+}
+
+
