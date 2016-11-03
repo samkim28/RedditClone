@@ -4,7 +4,7 @@ import {Link, IndexLink} from 'react-router';
 import UserForm from './UserForm';
 import 'isomorphic-fetch';
 
-
+//l
 var userTemplate = {name: "", email: "", description: "", errors: {}};
 
 class FrontApp extends Component {
