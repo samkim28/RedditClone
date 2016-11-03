@@ -74,7 +74,7 @@ class Comment extends Component{
           <div className='commentarrow down'> </div>
         </div>
         <div className={this.state.hidden?'hiddenCommentHeader':'visibleCommentHeader'} onClick={(e)=>{this.onClick(); e.stopPropagation();}}> <span className='plus'>[+]</span><span className='minus'>[–]</span><span className='author'>{this.props.data.author}</span> <span className='children'>children:{numChildren}</span></div>
-        <div className={this.state.hidden?'hiddenCommentBody':'visibleCommentBody'}>
+        <div style={{marginBottom:'10px'}} className={this.state.hidden?'hiddenCommentBody':'visibleCommentBody'}>
           {/* in markdown i passed className props*/}
           <Markdown style = {{marginTop:'5px', marginBottom:'5px', fontSize:'1.076923em', lineHeight:'1.4285em'}} source ={body}/>
         </div>
