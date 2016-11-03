@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Entry from './Entry';
 import {Link, IndexLink} from 'react-router';
 import UserForm from './UserForm';
+import 'isomorphic-fetch';
+
 
 var userTemplate = {name: "", email: "", description: "", errors: {}};
 
