@@ -21,12 +21,13 @@ app.get('/*', function(req, res) {
 
 
 
-app.set('host', process.env.HOST || 'localhost');
+// app.set('host', process.env.HOST || 'localhost');
 app.set('port', process.env.PORT || 3000);
- 
-app.listen(app.get('port'), app.get('host'), function(error) {
-  if(error) console.log('error');
-  console.log(`Server listening @ ${app.get('host')}:${app.get('port')}`);
-});
+app.listen(app.get('port'));
+
+// app.listen(app.get('port'), app.get('host'), function(error) {
+//   if(error) console.log('error');
+//   console.log(`Server listening @ ${app.get('host')}:${app.get('port')}`);
+// });
 
 

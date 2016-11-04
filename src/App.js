@@ -5,6 +5,8 @@ import React, {Component} from 'react';
 import Entry from './Entry';
 import {Link, IndexLink} from 'react-router';
 import UserForm from './UserForm';
+import 'isomorphic-fetch';
+
 
 var userTemplate = {name: "", email: "", description: "", errors: {}};
 
@@ -19,8 +21,8 @@ class App extends Component {
 
   componentDidMount() {
     var {location} = this.props;
-    var myRequest = new Request (`https://www.reddit.com${location.pathname}.json${location.search}`);
-    fetch(myRequest).then(function(response) {
+    // var myRequest = new Request (`https://www.reddit.com${location.pathname}.json${location.search}`);
+    fetch(`https://www.reddit.com${location.pathname}.json${location.search}`).then(function(response) {
       console.log('response from api call', response);
       return response.json();
     }).then(function(json) {
@@ -33,8 +35,8 @@ class App extends Component {
     //if(this.props.params.subreddit !== prevProps.params.subreddit || this.props.params.order !== prevProps.params.order) {
     if(this.props.location.pathname !== prevProps.location.pathname || this.props.location.search !== prevProps.location.search) {
       var {location} = this.props;
-      var myRequest = new Request (`https://www.reddit.com${location.pathname}.json${location.search}`);
-      fetch(myRequest).then(function(response) {
+      // var myRequest = new Request (`https://www.reddit.com${location.pathname}.json${location.search}`);
+      fetch(`https://www.reddit.com${location.pathname}.json${location.search}`).then(function(response) {
         console.log('response from api call', response);
         return response.json();
       }).then(function(json) {
