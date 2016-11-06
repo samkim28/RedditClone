@@ -1,5 +1,5 @@
 # RedditClone
 
-[I'm an inline-style link](https://www.google.com)
+[rongsroom.herokuapp.com](https://www.rongsroom.herokuapp.com)
 
 Project for fun that clones Reddit
