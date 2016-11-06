@@ -1,5 +1,5 @@
 # RedditClone
 
-www.rongsroom.herokuapp.com
+https://rongsroom.herokuapp.com
 
 Project for fun that clones Reddit
