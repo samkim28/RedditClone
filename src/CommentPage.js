@@ -101,7 +101,7 @@ class CommentPage extends Component {
       )
     }
     return (
-      <div>Hi Rong</div>
+      <div>waiting</div>
     )
   }
 }
