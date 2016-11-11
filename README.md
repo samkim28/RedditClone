@@ -8,3 +8,8 @@ Project for fun that clones Reddit.
 >npm install  
 >webpack  
 >node start  
+
+
+
+#Uses
+React, react-router
