@@ -7,7 +7,7 @@ Project for fun that clones Reddit.
 #To Run
 >npm install  
 >webpack  
->node start  
+>npm start  
 
 
 
