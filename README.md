@@ -5,9 +5,11 @@ https://rongsroom.herokuapp.com
 Project for fun that clones Reddit. 
 
 #To Run
->npm install  
->webpack  
->npm start  
+```  
+npm install  
+webpack   
+npm start  
+```
 
 
 
