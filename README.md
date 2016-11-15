@@ -15,3 +15,7 @@ Go to http://localhost:3000/
 
 #Uses
 React, react-router
+
+
+#Todo
+Refactor w/ redux, authentication

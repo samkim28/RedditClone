@@ -16,6 +16,8 @@ class FrontApp extends Component {
     this.submitNewUser = this.submitNewUser.bind(this);
   }
 
+  
+
   componentDidMount() {
     var {location} = this.props;
     // var myRequest = new Request (`https://www.reddit.com${location.pathname}.json${location.search}`);
