@@ -19,6 +19,20 @@ class FrontApp extends Component {
   
 
   componentDidMount() {
+
+     // fetch('https://www.reddit.com/api/v1/authorize?client_id=aO_hakV12sMyFA&response_type=code&state=rong&redirect_uri=http://127.0.0.1:3000&scope=identity')
+     //  .then(function(response) {
+     //  console.log('response from api call', response);
+     //  })
+
+    var myInit = { 
+      method: 'POST',
+      body: ''
+    };
+
+    // var myRequest = new Request('', myInit);
+
+
     var {location} = this.props;
     // var myRequest = new Request (`https://www.reddit.com${location.pathname}.json${location.search}`);
 
