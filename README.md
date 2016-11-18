@@ -18,4 +18,4 @@ React, react-router
 
 
 #Todo
-Refactor w/ redux, authentication
+Refactor w/ redux, authentication. Immutable, Reselect. Normalizr?
