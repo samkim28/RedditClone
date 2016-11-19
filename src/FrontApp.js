@@ -158,7 +158,6 @@ class FrontApp extends Component {
               <li><Link to={{pathname:`/promoted/`}} activeClassName='activeOrder'>promoted</Link></li>
             </ul>
           </div>
-          <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
           {arr}
           <span style={{color:'gray', fontSize: 'larger', marginLeft: '5px'}}>
             view more: <a style={buttons} href={`${location.pathname}?count=${countOnBeforeClick}&before=${this.state.beforeID}`}>‹ prev</a>
