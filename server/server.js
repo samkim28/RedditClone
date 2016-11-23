@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 var path = require ('path');
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
  
 //this logs the requests
 app.use(function(req, res, next) {
@@ -11,7 +13,15 @@ app.use(function(req, res, next) {
 //this sets up routes for the other files
 app.use('/static', express.static(path.join(__dirname, '/../')));
 app.get('/favicon.ico', function(req,res) {
-   res.sendFile(path.join(__dirname, '/../bulb.png'))
+  res.sendFile(path.join(__dirname, '/../bulb.png'))
+})
+
+app.get('/login', function(req,res) {
+  fetch('https://www.reddit.com/api/v1/authorize?client_id=aO_hakV12sMyFA&response_type=code&state=rong&redirect_uri=http://127.0.0.1:3000&scope=identity')
+      .then(function(response) {
+      console.log('response from api call', response.url);
+      res.send(response.url)
+      })
 })
 
 //this sends the index.html for the initial page load 

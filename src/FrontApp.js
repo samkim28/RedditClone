@@ -5,15 +5,11 @@ import UserForm from './UserForm';
 import 'isomorphic-fetch';
 
 
-var userTemplate = {name: "", email: "", description: "", errors: {}};
-
 class FrontApp extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {posts: null, newUser: userTemplate};
-    this.onFormChange = this.onFormChange.bind(this);
-    this.submitNewUser = this.submitNewUser.bind(this);
+    this.state = {posts: null};
   }
 
   
@@ -59,26 +55,36 @@ class FrontApp extends Component {
       }.bind(this))
     }
   }
+  signIn() {
+    //use server
+    fetch('login')
+      .then(function(response) {
+      console.log('response from api call', response);
+      return response.text();
 
-  onFormChange(value) {
-    this.setState({newUser:value})
+      }).then(function(text) {
+        console.log(text);
+      })
   }
+  // onFormChange(value) {
+  //   this.setState({newUser:value})
+  // }
 
-  submitNewUser(user) {
-    var userCopy = {...user, errors:{}};
-    if(!userCopy.name) {
-      userCopy.errors.name='put name';
-    }
-    if (!/.+@.+\..+/.test(user.email)) {
-      userCopy.errors.email = "Please enter your new user's email";
-    }
-    if(Object.keys(userCopy.errors).length===0) {
-      this.setState({newUser:userTemplate })
-    }
-    else {
-      this.setState({newUser:userCopy})
-    }
-  }
+  // submitNewUser(user) {
+  //   var userCopy = {...user, errors:{}};
+  //   if(!userCopy.name) {
+  //     userCopy.errors.name='put name';
+  //   }
+  //   if (!/.+@.+\..+/.test(user.email)) {
+  //     userCopy.errors.email = "Please enter your new user's email";
+  //   }
+  //   if(Object.keys(userCopy.errors).length===0) {
+  //     this.setState({newUser:userTemplate })
+  //   }
+  //   else {
+  //     this.setState({newUser:userCopy})
+  //   }
+  // }
 
   render(){ 
     // var subreddit = this.props.params.subreddit || '';
@@ -133,7 +139,7 @@ class FrontApp extends Component {
                 <li><Link to={{pathname:`/promoted/`}} activeClassName='activeOrder'>promoted</Link></li>
               </ul>
             </div>
-            <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
+            <button style={{float:'right'}} onClick={this.signIn}> click </button>
             {arr}
             <span style={{color:'gray', fontSize: 'larger', marginLeft: '5px'}}>
               view more: <a style={buttons} href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}>next ›</a>

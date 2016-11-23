@@ -8,15 +8,11 @@ import UserForm from './UserForm';
 import 'isomorphic-fetch';
 
 
-var userTemplate = {name: "", email: "", description: "", errors: {}};
-
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {posts: null, newUser: userTemplate};
-    this.onFormChange = this.onFormChange.bind(this);
-    this.submitNewUser = this.submitNewUser.bind(this);
+    this.state = {posts: null};
   }
 
   componentDidMount() {
@@ -122,7 +118,6 @@ class App extends Component {
             </div>
             <div>
             </div>
-            <UserForm newUser={this.state.newUser} onFormChange={this.onFormChange} submitNewUser={this.submitNewUser}/>
             {arr}
             <span style={{color:'gray', fontSize: 'larger', marginLeft: '5px'}}>
               view more: <a style={buttons} href={`${location.pathname}?count=${countOnAfterClick}&after=${this.state.afterID}`}>next ›</a>
