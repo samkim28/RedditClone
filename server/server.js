@@ -16,12 +16,12 @@ app.get('/favicon.ico', function(req,res) {
   res.sendFile(path.join(__dirname, '/../bulb.png'))
 })
 
+//to do login through reddit since redirect won't work on browser
 app.get('/login', function(req,res) {
-  fetch('https://www.reddit.com/api/v1/authorize?client_id=aO_hakV12sMyFA&response_type=code&state=rong&redirect_uri=http://127.0.0.1:3000&scope=identity')
-      .then(function(response) {
-      console.log('response from api call', response.url);
+  fetch('https://www.reddit.com/api/v1/authorize?client_id=aO_hakV12sMyFA&response_type=code&state=signedin&redirect_uri=http://localhost:3000&scope=identity')
+    .then(function(response) {
       res.send(response.url)
-      })
+    })
 })
 
 //this sends the index.html for the initial page load 

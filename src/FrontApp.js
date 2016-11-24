@@ -15,7 +15,7 @@ class FrontApp extends Component {
   
 
   componentDidMount() {
-
+    console.log(this.props.location)
      // fetch('https://www.reddit.com/api/v1/authorize?client_id=aO_hakV12sMyFA&response_type=code&state=rong&redirect_uri=http://127.0.0.1:3000&scope=identity')
      //  .then(function(response) {
      //  console.log('response from api call', response);
@@ -33,10 +33,8 @@ class FrontApp extends Component {
     // var myRequest = new Request (`https://www.reddit.com${location.pathname}.json${location.search}`);
 
     fetch(`https://www.reddit.com${location.pathname}.json${location.search}`).then(function(response) {
-      console.log('response from api call', response);
       return response.json();
     }).then(function(json) {
-      console.log('the json response from api call', json.data);
       this.setState({posts:json.data.children, afterID:json.data.after, beforeID:json.data.before});
     }.bind(this))
   }
@@ -57,14 +55,13 @@ class FrontApp extends Component {
   }
   signIn() {
     //use server
-    fetch('login')
+    fetch('/login')
       .then(function(response) {
-      console.log('response from api call', response);
-      return response.text();
-
+        return response.text();
       }).then(function(text) {
-        console.log(text);
+        window.location.href = text;
       })
+     
   }
   // onFormChange(value) {
   //   this.setState({newUser:value})
@@ -88,31 +85,29 @@ class FrontApp extends Component {
 
   render(){ 
     // var subreddit = this.props.params.subreddit || '';
-    console.log('rong', this.props.location)
     // var path = `/r/${this.props.params.subreddit}/`;
     var count = this.props.location.query.count || 0;
     //var before = this.props.location.query.before || null;
     var countOnAfterClick;
     var countOnBeforeClick; 
 
+    var startCount;
+
     //we use count and before/after as different states.
     //the clicks on prev/next depends on the states before/after
     if(this.props.location.query.before){
       countOnBeforeClick = Number(count)-25;
       countOnAfterClick = Number(count)-1;
+      //determine the post numberings
+      startCount = Number(count)-25;
     }
     else {
       countOnBeforeClick = Number(count)+1;
       countOnAfterClick = Number(count)+25;
-    }
-    var startCount;
-    //determine the post numberings
-    if(this.props.location.query.before) {
-      startCount = Number(count)-25;
-    }
-    else {
+
       startCount = Number(count)+1;
     }
+    
     //prev/next button styling
     var buttons = {background:'#eee', border: '1px solid #ddd', borderRadius: '3px', padding:'1px 4px', fontWeight:'bold'};
     if(this.state.posts) {

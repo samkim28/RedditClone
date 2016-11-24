@@ -70,25 +70,24 @@ class App extends Component {
     //var before = this.props.location.query.before || null;
     var countOnAfterClick;
     var countOnBeforeClick; 
+    var startCount;
 
     //we use count and before/after as different states.
     //the clicks on prev/next depends on the states before/after
     if(this.props.location.query.before){
       countOnBeforeClick = Number(count)-25;
       countOnAfterClick = Number(count)-1;
+
+      startCount = Number(count)-25;
+
     }
     else {
       countOnBeforeClick = Number(count)+1;
       countOnAfterClick = Number(count)+25;
-    }
-    var startCount;
-    //determine the post numberings
-    if(this.props.location.query.before) {
-      startCount = Number(count)-25;
-    }
-    else {
+
       startCount = Number(count)+1;
     }
+    
     //prev/next button styling
     var buttons = {background:'#eee', border: '1px solid #ddd', borderRadius: '3px', padding:'1px 4px', fontWeight:'bold'};
     
