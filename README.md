@@ -2,6 +2,8 @@
 
 https://rongsroom.herokuapp.com
 
+After you log in through reddit you will be redirected to rongsroom.
+
 Project for fun that clones Reddit. 
 
 #To Run

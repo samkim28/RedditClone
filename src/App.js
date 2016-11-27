@@ -12,7 +12,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {posts: null};
+    this.state = {posts: null, authCode: null};
   }
 
   componentDidMount() {
@@ -41,10 +41,20 @@ class App extends Component {
       }.bind(this))
     }
   }
-
-  onFormChange(value) {
-    this.setState({newUser:value})
+   signIn() {
+    //use server
+    fetch('/login')
+      .then(function(response) {
+        return response.text();
+      }).then(function(text) {
+        window.location.href = text;
+      })
+     
   }
+
+  // onFormChange(value) {
+  //   this.setState({newUser:value})
+  // }
 
   submitNewUser(user) {
     var userCopy = {...user, errors:{}};
@@ -63,8 +73,10 @@ class App extends Component {
   }
 
   render(){ 
+    if(this.props.location.query.code) {
+      this.setState({authCode:'this.props.location.query.code'});
+    }
     // var subreddit = this.props.params.subreddit || '';
-    console.log(this.props.location)
     // var path = `/r/${this.props.params.subreddit}/`;
     var count = this.props.location.query.count || 0;
     //var before = this.props.location.query.before || null;

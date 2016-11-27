@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react';
 import Entry from './Entry';
 import {Link, IndexLink} from 'react-router';
@@ -12,7 +13,11 @@ class FrontApp extends Component {
     this.state = {posts: null};
   }
 
-  
+  componentWillMount() {
+    if(this.props.location.query.code) {
+      this.setState({authCode:this.props.location.query.code});
+    }
+  }
 
   componentDidMount() {
     console.log(this.props.location)
@@ -84,6 +89,7 @@ class FrontApp extends Component {
   // }
 
   render(){ 
+  
     // var subreddit = this.props.params.subreddit || '';
     // var path = `/r/${this.props.params.subreddit}/`;
     var count = this.props.location.query.count || 0;
