@@ -15,6 +15,19 @@ class FrontApp extends Component {
 
   componentWillMount() {
     if(this.props.location.query.code) {
+      var myInit = { 
+           method: 'POST',
+           body: this.props.location.query.code
+         };
+      var myRequest = new Request('/access_token', myInit);
+
+      fetch(myRequest)
+        .then(function(response) {
+          return response.text();
+        }).then(function(text) {
+         console.log(text);
+        })
+       
       this.setState({authCode:this.props.location.query.code});
     }
   }
